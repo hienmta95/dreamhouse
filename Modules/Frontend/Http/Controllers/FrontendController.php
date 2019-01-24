@@ -1,0 +1,222 @@
+<?php
+
+namespace Modules\Frontend\Http\Controllers;
+
+use App\Lienhe;
+use App\Product;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+use App\Slide;
+use App\Linhvuc;
+use App\Hoatdong;
+use App\Room;
+use App\Page;
+use App\Category;
+
+class FrontendController extends Controller
+{
+    function __construct(Request $request)
+    {
+        $roomMenu = Room::with(['category', 'images'])->get()->toArray();
+        $linhvucMenu = Linhvuc::get()->toArray();
+        view()->share('roomMenu', $roomMenu);
+        view()->share('linhvucMenu', $linhvucMenu);
+    }
+
+    public function homepage(Request $request)
+    {
+        // slide
+        $slides = [];
+        $slideObj = Slide::with(['image'])->orderBy('id', 'desc')->get();
+        foreach ($slideObj as $key=>$item)
+        {
+            $slides[$key]['id'] = $item->id ? $item->id : "";
+            $slides[$key]['tieude'] = $item->name ? $item->name : "";
+            $slides[$key]['image'] = $item->image->url ? asset('/').$item->image->url : asset('/')."/images/slide3.jpg";
+        }
+
+        // da thiet ke
+        $congtrinhdathuchien = $this->getHoatDong('cong-trinh-thuc-hien', 4, 5);
+        $duandathietke = $this->getHoatDong('du-an-da-thiet-ke', 3, 3);
+
+        return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke'));
+    }
+
+    public function getHoatDong($slug, $id_linhvuc, $limit)
+    {
+        $array = [ 'linhvuc' => [], 'list'=>[] ] ;
+        $linhvucObj = Linhvuc::where('slug', $slug)
+            ->orWhere('id', $id_linhvuc)->first();
+        $idObj = $linhvucObj ? $linhvucObj->id : $id_linhvuc;
+        $hoatdongObj = Hoatdong::where('linhvuc_id', $idObj)
+            ->orderBy('id', 'desc')
+            ->limit($limit)
+            ->get();
+
+        foreach ($hoatdongObj as $key=>$item)
+        {
+            $array['list'][$key]['id'] = $item->id ? $item->id : "";
+            $array['list'][$key]['title'] = $item->title ? $item->title : "";
+            $array['list'][$key]['slug'] = $item->slug ? $item->slug : "";
+            $array['list'][$key]['date'] = $item->updated_at ? $item->updated_at->format('d/m/Y') : "01/01/2019";
+            $array['list'][$key]['image'] = $item->image->url ? asset('/').$item->image->url : asset('/')."/images/slide3.jpg";
+        }
+        $array['linhvuc']['id'] = $idObj;
+        $array['linhvuc']['slug'] = $linhvucObj->slug;
+        $array['linhvuc']['title'] = $linhvucObj->title;
+
+        return $array;
+    }
+
+    public function getRoom(Request $request)
+    {
+        $slug = $request->slug_room;
+
+        $data = [];
+        $roomObj = Room::with(['images', 'category'])->where('slug', $slug)->orderBy('id', 'desc')->first();
+        if(!empty($data)) {
+            $data['id'] = $roomObj->id;
+            $data['title'] = $roomObj->title;
+            $data['slug'] = $roomObj->slug;
+            $data['introduce'] = $roomObj->introduce;
+
+            foreach ($roomObj->images as $key=>$item)
+            {
+                $data['images'][$key]['id'] = $item->id;
+                $data['images'][$key]['url'] = $item->url;
+            }
+            foreach ($roomObj->category as $key=>$item)
+            {
+                $data['category'][$key]['id'] = $item->id;
+                $data['category'][$key]['title'] = $item->title;
+                $data['category'][$key]['slug'] = $item->slug;
+                $data['category'][$key]['image'] = asset('/').$item->image->url;
+            }
+
+            return view('frontend::pages.room', compact('data'));
+        }
+        
+        return view('frontend::pages.404');
+    }
+
+    public function getLienhethanhcong(Request $request)
+    {
+        return view('frontend::pages.lienhethanhcong');
+    }
+
+    public function getLienhe(Request $request)
+    {
+        return view('frontend::pages.lienhe');
+    }
+
+    public function postLienhe(Request $request)
+    {
+        $req = $request->all();
+        $create = Lienhe::create($req);
+        if($create)
+            return redirect()->route('frontend.get.thanhcong');
+        return view('frontend::pages.lienhe');
+    }
+
+    public function getCategory(Request $request)
+    {
+        $slug = $request->slug;
+
+        $data = Category::with(['room', 'image', 'product' => function ($query) {
+            $query->with(['images']);
+            $query->orderBy('id', 'desc');
+        }])
+            ->where('slug', $slug)
+            ->first();
+        if(!empty($data)) {
+            return view('frontend::pages.category', compact('data'));
+        }
+        return view('frontend::pages.404');
+    }
+
+    public function getProduct(Request $request)
+    {
+        $slug = $request->slug;
+        $data = Product::with(['images', 'category' => function($query) {
+            $query->with(['room']);
+        }])
+            ->where('slug', $slug)
+            ->first();
+        if(!empty($data)) {
+            $dataRelate = Product::with(['images'])
+                ->where('category_id', $data['category_id'])
+                ->orderBy('id', 'desc')
+                ->orderBy('id', 'desc')
+                ->get()->toArray();
+
+            return view('frontend::pages.product', compact('data','dataRelate'));
+        }
+        return view('frontend::pages.404');
+    }
+
+    public function getPageHoatdong(Request $request)
+    {
+        $slug = $request->slug;
+        $data = Hoatdong::with(['image', 'linhvuc'])
+            ->where('slug', $slug)
+            ->first();
+        if(!empty($data)) {
+            $dataRelate = Hoatdong::with(['image'])
+                ->where('linhvuc_id', $data['linhvuc']['id'])
+                ->orderBy('id', 'desc')
+                ->get()
+                ->toArray();
+
+            return view('frontend::pages.hoatdong', compact('data','dataRelate'));
+        }
+        return view('frontend::pages.404');
+    }
+
+    public function getPageLinhvuc(Request $request)
+    {
+        $slug = $request->slug;
+        $linhvuc = Linhvuc::where('slug', $slug)->first();
+        if(!empty($linhvuc)) {
+            $data = Hoatdong::with(['image'])
+                ->where('linhvuc_id', $linhvuc['id'])
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+
+            return view('frontend::pages.linhvuc', compact('data','linhvuc'));
+        }
+        return view('frontend::pages.404');
+    }
+
+    public function getSearch(Request $request)
+    {
+        $keyword = $request->keyword;
+        $request->flashOnly(['keyword']);
+        $key = preg_replace("/[^a-zA-Z0-9]+/", "", $keyword);
+
+        $data = Product::with(['images'])
+            ->where('title', 'like', '%'.$key.'%')
+            ->orderBy('id', 'desc')
+            ->paginate(12);
+
+        return view('frontend::pages.search', compact('data','keyword'));
+    }
+
+    public function getPage(Request $request)
+    {
+        $slug = $request->slug;
+        $data = Page::where('kichhoat', '!=', 0)->where('slug', $slug)->first();
+        if(!empty($data)) {
+            $dataNoibat = Hoatdong::with(['image'])
+                ->where('noibat', 1)
+                ->orderBy('id', 'desc')
+                ->limit(5)
+                ->get()->toArray();
+
+            return view('frontend::pages.page', compact('data', 'dataNoibat'));
+        }
+
+        return view('frontend::pages.404');
+    }
+
+}
