@@ -16,6 +16,8 @@ use App\Category;
 
 class FrontendController extends Controller
 {
+    private $rooms;
+
     function __construct(Request $request)
     {
         $linhvucSlug = [];
@@ -31,6 +33,7 @@ class FrontendController extends Controller
             $pageSlug[$page['id']] = $page['slug'];
 
         $roomMenu = Room::with(['category', 'images'])->get()->toArray();
+        $this->rooms = $roomMenu;
 
         view()->share('roomMenu', $roomMenu);
         view()->share('pageSlug', $pageSlug);
@@ -53,7 +56,13 @@ class FrontendController extends Controller
         $congtrinhdathuchien = $this->getHoatDong('cong-trinh-da-thuc-hien', 4, 5);
         $duandathietke = $this->getHoatDong('du-an-da-thiet-ke', 3, 3);
 
-        return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke'));
+        $roomSlug = [];
+        foreach ($this->rooms as $room) {
+            $roomSlug[$room['id']]['slug'] = $room['slug'];
+            $roomSlug[$room['id']]['title'] = $room['title'];
+        }
+
+        return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke', 'roomSlug'));
     }
 
     public function getHoatDong($slug, $id_linhvuc, $limit)

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="grid">
-            <a class="grid-item grid-item-width2 video" href="#" title="Video" style="padding-bottom: 345px !important;">
+            <a class="grid-item grid-item-width2 video" f="#" title="Video" style="padding-bottom: 345px !important;">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/3bJkVSMs4dw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </a>
 
@@ -51,7 +51,7 @@
                     <span class="btn-detail">Xem thêm</span>
                 </div>
             </a>
-            <a class="grid-item img-cover" href="/page/nguon-nguyen-lieu" title="Nguyên liệu đảm bảo">
+            <a class="grid-item img-cover" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguyên liệu đảm bảo">
                 <img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="Nguyên liệu đảm bảo" style="height: 345px;">
                 <div class="desc">
                     <h3>
@@ -91,7 +91,7 @@
                 {{--@endif--}}
             {{--@endforeach--}}
 
-            <a class="grid-item img-cover" href="/phong/phong-an" title="1">
+            <a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="1">
                 <img src="{{ asset('/')."Uploads/images/banan.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">
                 <div class="desc">
                     <h3><p>B&agrave;n ăn</p>
@@ -102,7 +102,7 @@
                 </div>
             </a>
 
-            <a class="grid-item grid-item-width2 img-cover" href="/phong/phong-khach" title="2">
+            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="2">
                 <img src="{{ asset('/').'Uploads/images/phong-khach.jpg' }}" alt="Ph&#242;ng kh&#225;ch">
                 <div class="desc">
                     <h3><p>Nội thất<br />
@@ -111,7 +111,7 @@
                     </h3>
                 </div>
             </a>
-            <a class="grid-item grid-item-width2 img-cover" href="phong/phong-ngu" title="3">
+            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '2', 'slug' => $roomSlug[2]['slug'] ? $roomSlug[2]['slug'] : '']) }}" title="3">
                 <img src="{{ asset('/').'Uploads/images/phong-ngu.jpg' }}" alt="Ph&#242;ng ngủ">
                 <div class="desc">
                     <h3><p>Nội thất<br />
@@ -120,7 +120,7 @@
                     </h3>
                 </div>
             </a>
-            <a class="grid-item grid-item-width2 img-cover" href="phong/phong-an" title="4">
+            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="4">
                 <img src="{{ asset('/').'Uploads/images/phong-an.jpg' }}" alt="Bếp - Ph&#242;ng ăn">
                 <div class="desc">
                     <h3><p>Nội thất<br />
@@ -129,7 +129,7 @@
                     </h3>
                 </div>
             </a>
-            <a class="grid-item img-cover" href="phong/phong-tre-em" title="5">
+            <a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '4', 'slug' => $roomSlug[4]['slug'] ? $roomSlug[4]['slug'] : '']) }}" title="5">
                 <img src="{{ asset('/')."Uploads/images/treem1.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">
                 <div class="desc">
                     <h3><p>Nội thất<br />
@@ -138,7 +138,7 @@
                     </h3>
                 </div>
             </a>
-            <a class="grid-item grid-item-width2 img-cover" href="/phong/phong-khach" title="6">
+            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="6">
                 <img src="{{ asset('/').'Uploads/images/phong-lam-viec.jpg' }}" alt="Ph&#242;ng l&#224;m việc">
                 <div class="desc">
                     <h3><p>Nội thất<br />
