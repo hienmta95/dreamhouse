@@ -16,8 +16,8 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="{{ route('frontend.homepage') }}">Trang chủ</a></li>
-                <li><a href="{{ route('frontend.get.room', ['slug_room' => $data['category']['room']['slug']]) }}">{{ $data['category']['room']['title'] }}</a></li>
-                <li><a href="{{ route('frontend.get.category', ['slug' => $data['category']['slug']]) }}">{{ $data['category']['title'] }}</a></li>
+                <li><a href="{{ route('frontend.get.room', ['id' => $data['category']['room']['id'], 'slug' => $data['category']['room']['slug']]) }}">{{ $data['category']['room']['title'] }}</a></li>
+                <li><a href="{{ route('frontend.get.category', ['id' => $data['category']['id'], 'slug' => $data['category']['slug']]) }}">{{ $data['category']['title'] }}</a></li>
 
                 <li class="active">{{ $data['title'] }}</li>
             </ol>
@@ -70,13 +70,13 @@
                             @foreach($dataRelate as $item)
                                 <li>
                                 <div class="img img-cover">
-                                    <a href="{{ route('frontend.get.product', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
+                                    <a href="{{ route('frontend.get.product', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
                                         <img src="{{ asset('/').$item['images'][0]['url'] }}" alt="{{ $item['title'] }}" title="{{ $item['title'] }}" />
                                     </a>
                                 </div>
                                 <div class="desc">
                                     <h3>
-                                        <a href="{{ route('frontend.get.product', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
+                                        <a href="{{ route('frontend.get.product', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
                                     </h3>
                                     <div class="new-price color-green">Liên hệ</div>
                                 </div>

@@ -30,7 +30,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="{{ route('frontend.homepage') }}" title="Trang chủ">Trang chủ</a></li>
-                <li><a href="{{ route('frontend.get.linhvuc', ['slug' => $data['linhvuc']['slug']]) }}">{{ $data['linhvuc']['title'] }}</a></li>
+                <li><a href="{{ route('frontend.get.linhvuc', ['id' => $data['linhvuc']['id'], 'slug' => $data['linhvuc']['slug']]) }}">{{ $data['linhvuc']['title'] }}</a></li>
 
                 <li class="active">{{ $data['title'] }}</li>
             </ol>
@@ -63,13 +63,13 @@
                             @foreach($dataRelate as $item)
                                 <li>
                                     <div class="img img-cover">
-                                        <a href="{{ route('frontend.get.hoatdong', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
+                                        <a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
                                             <img src="{{ asset('/').$item['image']['url'] }}" alt="{{ $item['title'] }}" title="{{ $item['title'] }}" />
                                         </a>
                                     </div>
                                     <div class="desc">
                                         <h3>
-                                            <a href="{{ route('frontend.get.hoatdong', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
+                                            <a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
                                         </h3>
                                     </div>
                                 </li>
@@ -87,10 +87,10 @@
                                     @if($item['noibat'] == 1)
                                     <li class="news">
                                         <div class="img img-cover">
-                                            <a href="{{ route('frontend.get.hoatdong', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}"><img src="{{ asset('/').$item['image']['url'] }}" title="{{ $item['title'] }}" alt="{{ $item['title'] }}" /></a>
+                                            <a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}"><img src="{{ asset('/').$item['image']['url'] }}" title="{{ $item['title'] }}" alt="{{ $item['title'] }}" /></a>
                                         </div>
                                         <div class="desc">
-                                            <h3><a href="{{ route('frontend.get.hoatdong', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
+                                            <h3><a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
                                             <div class="time"><i>{{ date_format(date_create($data['updated_at']), "d/m/Y") }}</i></div>
                                         </div>
                                     </li>

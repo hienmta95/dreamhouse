@@ -42,7 +42,7 @@
             </a>
 
             <a class="grid-item img-cover" href="{{ route('frontend.get.lienhe') }}" title="Liên hệ">
-                <img src="{{ asset('/').'Uploads/images/go1.jpg' }}" alt="Liên hệ" title="Liên hệ">
+                <img src="{{ asset('/').'Uploads/images/go1.jpg' }}" alt="Liên hệ" title="Liên hệ" style="height: 345px;">
                 <div class="desc">
                     <h3>
                         <p><small>Li&ecirc;n hệ</small>với DreamGo</p>
@@ -51,8 +51,8 @@
                     <span class="btn-detail">Xem thêm</span>
                 </div>
             </a>
-            <a class="grid-item img-cover" href="/nguon-nguyen-lieu" title="Nguyên liệu đảm bảo">
-                <img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="TNguyên liệu đảm bảo" style="height: 345px;">
+            <a class="grid-item img-cover" href="/page/nguon-nguyen-lieu" title="Nguyên liệu đảm bảo">
+                <img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="Nguyên liệu đảm bảo" style="height: 345px;">
                 <div class="desc">
                     <h3>
                         <p><small>Nguồn nguyên liệu</small>đảm bảo</p>
@@ -77,7 +77,7 @@
 
             {{--@foreach($roomMenu as $key=>$item)--}}
                 {{--@if($item['slug'] != 'san-pham-khac')--}}
-                    {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['slug_room' =>$item['slug']]) }}" title="{{ $key+2 }}">--}}
+                    {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' =>$item['id']]) }}" title="{{ $key+2 }}">--}}
                         {{--@if(!empty($item['images']))--}}
                             {{--<img src="{{ asset('/').$item['images'][0]['url'] }}" alt="{{ $item['title'] }}">--}}
                         {{--@endif--}}
@@ -154,19 +154,19 @@
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div id="index-news">
-                    <h2><a href="{{ $congtrinhdathuchien['linhvuc']['id'] }}" title="{{ $congtrinhdathuchien['linhvuc']['title'] }}">{{ $congtrinhdathuchien['linhvuc']['title'] }}</a></h2>
+                    <h2><a href="{{ route('frontend.get.linhvuc', [ 'id' => $congtrinhdathuchien['linhvuc']['id'], 'slug' => $congtrinhdathuchien['linhvuc']['slug'] ]) }}" title="{{ $congtrinhdathuchien['linhvuc']['title'] }}">{{ $congtrinhdathuchien['linhvuc']['title'] }}</a></h2>
                     @if(isset($congtrinhdathuchien['list']))
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="news-big">
                                 <div class="img img-cover">
-                                    <a href="{{ $congtrinhdathuchien['list'][0]['title'] }}" title="{{ $congtrinhdathuchien['list'][0]['title'] }}">
+                                    <a href="{{ route('frontend.get.hoatdong', ['id' =>$congtrinhdathuchien['list'][0]['id'], 'slug' => $congtrinhdathuchien['linhvuc']['slug'] ]) }}" title="{{ $congtrinhdathuchien['list'][0]['title'] }}">
                                         <img src="{{ $congtrinhdathuchien['list'][0]['image'] }}" alt="{{ $congtrinhdathuchien['list'][0]['title'] }}" />
                                     </a>
                                     <div class="time">{{ $congtrinhdathuchien['list'][0]['date'] }}</div>
                                 </div>
                                 <div class="desc">
-                                    <h3><a href="{{ $congtrinhdathuchien['list'][0]['title'] }}" title="{{ $congtrinhdathuchien['list'][0]['title'] }}">{{ $congtrinhdathuchien['list'][0]['title'] }}</a></h3>
+                                    <h3><a href="{{ route('frontend.get.hoatdong', ['id' =>$congtrinhdathuchien['list'][0]['id'], 'slug' => $congtrinhdathuchien['linhvuc']['slug'] ]) }}" title="{{ $congtrinhdathuchien['list'][0]['title'] }}">{{ $congtrinhdathuchien['list'][0]['title'] }}</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                                     @if($key > 0)
                                         <li>
                                             <div class="time">{{ $item['date'] }}</div>
-                                            <h3><a href="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
+                                            <h3><a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}">{{ $item['title'] }}</a></h3>
                                         </li>
                                     @endif
                                 @endforeach
@@ -188,20 +188,20 @@
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div id="index-consult">
-                    <h2><a href="{{ $duandathietke['linhvuc']['id'] }}" title="{{ $duandathietke['linhvuc']['title'] }}">{{ $duandathietke['linhvuc']['title'] }}</a></h2>
+                    <h2><a href="{{ route('frontend.get.linhvuc', ['id' => $duandathietke['linhvuc']['id'], 'slug' => $duandathietke['linhvuc']['slug'] ]) }}" title="{{ $duandathietke['linhvuc']['title'] }}">{{ $duandathietke['linhvuc']['title'] }}</a></h2>
 
                     @if(isset($duandathietke['list']))
                     @foreach($duandathietke['list'] as $key=>$item)
                         <div class="consult">
                             <div class="img img-cover">
-                                <a href="{{ $item['title'] }}" title="{{ $item['title'] }}">
+                                <a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug'] ]) }}" title="{{ $item['title'] }}">
                                     <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" /></a>
                             </div>
                             <div class="desc">
                                 <div class="time">{{ $item['date'] }}</div>
-                                <h3><a href="{{ $item['title'] }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
+                                <h3><a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
                                 <div class="text-right">
-                                    <a href="{{ $item['title'] }}" title="{{ $item['title'] }}" class="btn-detail">Chi tiết</a>
+                                    <a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="btn-detail">Chi tiết</a>
                                 </div>
                             </div>
                         </div>

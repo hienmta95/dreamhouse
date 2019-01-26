@@ -18,7 +18,7 @@
             <input type="hidden" name="_method" value="PUT"/>
 
             <div class="form-group @if (count($errors->all())) {{$errors->has(['title']) ? 'has-error' : 'has-success'}} @endif" >
-                <label class="control-label">Tên sản phẩm <span class="required">*</span></label>
+                <label class="control-label">Tên page <span class="required">*</span></label>
                 <input type="text" class="form-control{{ $errors->has('title') ? ' has-error' : '' }}" name="title" value="{{ $page->title }}">
                 <div class="help-block">@if($errors->has('title')) {{ $errors->first('title') }} @endif</div>
             </div>

@@ -93,7 +93,7 @@
                                 <div class="img img-cover">
                                     <img src="{{ $item['image'] }}" />
                                     <div class="overlay">
-                                        <a href="{{ route('frontend.get.category', ['slug'=>$item['slug']]) }}" title="{{ $item['title'] }}" class="overlay-link">{{ $item['title'] }}</a>
+                                        <a href="{{ route('frontend.get.category', ['id'=>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="overlay-link">{{ $item['title'] }}</a>
                                         <table>
                                             <tr>
                                                 <td>
@@ -102,15 +102,15 @@
                                                         <div class="social">
                                                             <ul>
 
-                                                                <li><a class="share" data-network="facebook" href="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&amp;sdk=joey&amp;u={{ route('frontend.get.category', ['slug' => $item['slug']]) }}&amp;display=popup&amp;ref=plugin&amp;src=share_button"><i class="fa fa-facebook"></i> Facebook</a></li>
-                                                                <li><a class="share" data-network="twitter" href="https://twitter.com/intent/tweet?hashtags=&amp;original_referer=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&amp;ref_src=twsrc%5Etfw&amp;related=twitterapi%2Ctwitter&amp;text=&amp;tw_p=tweetbutton&amp;url={{ route('frontend.get.category', ['slug' => $item['slug']]) }}"><i class="fa fa-twitter"></i> Twitter</a></li>
-                                                                <li><a class="share" data-network="google" href="https://plus.google.com/share?url={{ route('frontend.get.category', ['slug' => $item['slug']]) }}"><i class="fa fa-google-plus"></i> Google+</a></li>
+                                                                <li><a class="share" data-network="facebook" href="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&amp;sdk=joey&amp;u={{ route('frontend.get.category', ['id' => $item['id'], 'slug' => $item['slug']]) }}&amp;display=popup&amp;ref=plugin&amp;src=share_button"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                                                <li><a class="share" data-network="twitter" href="https://twitter.com/intent/tweet?hashtags=&amp;original_referer=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&amp;ref_src=twsrc%5Etfw&amp;related=twitterapi%2Ctwitter&amp;text=&amp;tw_p=tweetbutton&amp;url={{ route('frontend.get.category', ['id' => $item['id'], 'slug' => $item['slug']]) }}"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                                                <li><a class="share" data-network="google" href="https://plus.google.com/share?url={{ route('frontend.get.category', ['id' => $item['id'], 'slug' => $item['slug']]) }}"><i class="fa fa-google-plus"></i> Google+</a></li>
 
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><a href="{{ route('frontend.get.category', ['slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="btn btn-success btn-sm btn-detail">Chi tiết</a></td>
+                                                <td><a href="{{ route('frontend.get.category', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="btn btn-success btn-sm btn-detail">Chi tiết</a></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"></td>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="desc">
                                     <h3 style="margin-bottom: 0">
-                                        <a href="{{ route('frontend.get.category', ['slug'=>$item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
+                                        <a href="{{ route('frontend.get.category', ['id'=>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a>
                                     </h3>
                                 </div>
                             </div>

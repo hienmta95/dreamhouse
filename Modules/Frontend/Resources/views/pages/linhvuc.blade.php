@@ -34,7 +34,7 @@
                             @foreach($data as $item)
                                 @if($item['noibat'] == 1)
                                     <li>
-                                        <a href="{{ route('frontend.get.hoatdong', ['slug' =>$item['slug']]) }}" title="{{ $item['title'] }}">
+                                        <a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
                                             <div class="img img-cover">
                                                 <img src="{{ asset('/').$item['image']['url'] }}" title="{{ $item['title'] }}" alt="{{ $item['title'] }}" />
                                             </div>
@@ -55,11 +55,11 @@
                                 <div class="col-sm-6 col-xs-12">
                                 <div class="news">
                                     <div class="img img-cover">
-                                        <a href="{{ route('frontend.get.hoatdong', ['slug' =>$item['slug']]) }}" title="{{ $item['title'] }}">
+                                        <a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">
                                             <img src="{{ asset('/').$item['image']['url'] }}" alt="{{ $item['title'] }}"/></a>
                                     </div>
                                     <div class="desc">
-                                        <h3><a href="{{ route('frontend.get.hoatdong', ['slug' =>$item['slug']]) }}" title="{{ $item['title'] }}" class="color-green">{{ $item['title'] }}</a>
+                                        <h3><a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="color-green">{{ $item['title'] }}</a>
                                         </h3>
                                         <div class="time">
                                             <i>{{ date_format(date_create($data['updated_at']), "d/m/Y") }}</i>

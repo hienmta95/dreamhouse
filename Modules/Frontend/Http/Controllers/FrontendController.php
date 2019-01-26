@@ -18,10 +18,23 @@ class FrontendController extends Controller
 {
     function __construct(Request $request)
     {
-        $roomMenu = Room::with(['category', 'images'])->get()->toArray();
+        $linhvucSlug = [];
         $linhvucMenu = Linhvuc::get()->toArray();
+        foreach ($linhvucMenu as $linhvuc) {
+            $linhvucSlug[$linhvuc['id']]['slug'] = $linhvuc['slug'];
+            $linhvucSlug[$linhvuc['id']]['title'] = $linhvuc['title'];
+        }
+
+        $pageSlug = [];
+        $pageData = Page::get()->toArray();
+        foreach ($pageData as $page)
+            $pageSlug[$page['id']] = $page['slug'];
+
+        $roomMenu = Room::with(['category', 'images'])->get()->toArray();
+
         view()->share('roomMenu', $roomMenu);
-        view()->share('linhvucMenu', $linhvucMenu);
+        view()->share('pageSlug', $pageSlug);
+        view()->share('linhvucSlug', $linhvucSlug);
     }
 
     public function homepage(Request $request)
@@ -37,7 +50,7 @@ class FrontendController extends Controller
         }
 
         // da thiet ke
-        $congtrinhdathuchien = $this->getHoatDong('cong-trinh-thuc-hien', 4, 5);
+        $congtrinhdathuchien = $this->getHoatDong('cong-trinh-da-thuc-hien', 4, 5);
         $duandathietke = $this->getHoatDong('du-an-da-thiet-ke', 3, 3);
 
         return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke'));
@@ -71,11 +84,11 @@ class FrontendController extends Controller
 
     public function getRoom(Request $request)
     {
-        $slug = $request->slug_room;
+        $id = $request->id;
 
         $data = [];
-        $roomObj = Room::with(['images', 'category'])->where('slug', $slug)->orderBy('id', 'desc')->first();
-        if(!empty($data)) {
+        $roomObj = Room::with(['images', 'category'])->where('id', $id)->first();
+        if(!empty($roomObj)) {
             $data['id'] = $roomObj->id;
             $data['title'] = $roomObj->title;
             $data['slug'] = $roomObj->slug;
@@ -96,7 +109,7 @@ class FrontendController extends Controller
 
             return view('frontend::pages.room', compact('data'));
         }
-        
+
         return view('frontend::pages.404');
     }
 
@@ -121,13 +134,12 @@ class FrontendController extends Controller
 
     public function getCategory(Request $request)
     {
-        $slug = $request->slug;
-
+        $id = $request->id;
         $data = Category::with(['room', 'image', 'product' => function ($query) {
             $query->with(['images']);
             $query->orderBy('id', 'desc');
         }])
-            ->where('slug', $slug)
+            ->where('id', $id)
             ->first();
         if(!empty($data)) {
             return view('frontend::pages.category', compact('data'));
@@ -137,16 +149,15 @@ class FrontendController extends Controller
 
     public function getProduct(Request $request)
     {
-        $slug = $request->slug;
+        $id = $request->id;
         $data = Product::with(['images', 'category' => function($query) {
             $query->with(['room']);
         }])
-            ->where('slug', $slug)
+            ->where('id', $id)
             ->first();
         if(!empty($data)) {
             $dataRelate = Product::with(['images'])
                 ->where('category_id', $data['category_id'])
-                ->orderBy('id', 'desc')
                 ->orderBy('id', 'desc')
                 ->get()->toArray();
 
@@ -157,9 +168,9 @@ class FrontendController extends Controller
 
     public function getPageHoatdong(Request $request)
     {
-        $slug = $request->slug;
+        $id = $request->id;
         $data = Hoatdong::with(['image', 'linhvuc'])
-            ->where('slug', $slug)
+            ->where('id', $id)
             ->first();
         if(!empty($data)) {
             $dataRelate = Hoatdong::with(['image'])
@@ -175,8 +186,8 @@ class FrontendController extends Controller
 
     public function getPageLinhvuc(Request $request)
     {
-        $slug = $request->slug;
-        $linhvuc = Linhvuc::where('slug', $slug)->first();
+        $id = $request->id;
+        $linhvuc = Linhvuc::where('id', $id)->first();
         if(!empty($linhvuc)) {
             $data = Hoatdong::with(['image'])
                 ->where('linhvuc_id', $linhvuc['id'])
@@ -204,8 +215,8 @@ class FrontendController extends Controller
 
     public function getPage(Request $request)
     {
-        $slug = $request->slug;
-        $data = Page::where('kichhoat', '!=', 0)->where('slug', $slug)->first();
+        $id = $request->id;
+        $data = Page::where('kichhoat', '!=', 0)->where('id', $id)->first();
         if(!empty($data)) {
             $dataNoibat = Hoatdong::with(['image'])
                 ->where('noibat', 1)

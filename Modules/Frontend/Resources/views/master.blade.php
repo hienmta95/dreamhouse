@@ -42,14 +42,13 @@
                     </a>
                 </div>
                 <div class="tbl-cell text-center hidden-1024">
-                    <a class="hot-event" href="/page/nguon-nguyen-lieu" title="100% NGUY&#202;N LIỆU AN TO&#192;N">
+                    <a class="hot-event" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N">
                         <div class="img">
                             <img src="{{ asset('images/anh1.png') }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N" alt="100% NGUY&#202;N LIỆU AN TO&#192;N">
                         </div>
                         <div class="desc">
                             <h3>
-                                <span style="color: #1ea8b3 !important;" class="color-green">100% NGUY&#202;N LIỆU AN TO&#192;N</span>
-
+                                <span style="color: #1ea8b3 !important;" class="color-green">100% NGUYÊN LIỆU AN TOÀN</span>
                             </h3>
                         </div>
                     </a>
@@ -67,9 +66,9 @@
                         </li>
                     </ul>
                     <ul class="bottom">
-                        <li><a href="/page/gioi-thieu" title="Giới thiệu">Giới thiệu</a></li>
-                        <li><a href="/linh-vuc/cong-trinh-da-thuc-hien" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">C&#244;ng tr&#236;nh đ&#227; thực hiện</a></li>
-                        <li><a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Li&#234;n hệ</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
+                        <li><a href="{{ route('frontend.get.linhvuc', ['id' => '4', 'slug' => $linhvucSlug[4]['slug'] ? $linhvucSlug[4]['slug'] : '']) }}" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">Công trình đã thực hiện</a></li>
+                        <li><a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Liên hệ</a></li>
                         <li id="hotline"><a href="tel:0919 379 799">0919 379 799</a></li>
                     </ul>
                 </div>
@@ -108,21 +107,21 @@
                     <li><a href="{{ route('frontend.homepage') }}" title="Trang chủ">Trang chủ</a></li>
 
                     <li class="visible-1024">
-                        <a href="/page/gioi-thieu" title="Giới thiệu">Giới thiệu 1</a>
+                        <a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a>
                     </li>
                     <li class="visible-1024">
-                        <a href="/page/cong-trinh-da-thuc-hien" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">C&#244;ng tr&#236;nh đ&#227; thực hiện</a>
+                        <a href="{{ route('frontend.get.linhvuc', ['id' => '4', 'slug' => $linhvucSlug[4]['slug'] ? $linhvucSlug[4]['slug'] : '']) }}" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">Công trình đã thực hiện</a>
                     </li>
                     <li class="visible-1024">
-                        <a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Li&#234;n hệ</a>
+                        <a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Liên hệ</a>
                     </li>
 
                     <li>
                         <a href="/#" title="Lĩnh vực hoạt động">Lĩnh vực hoạt động</a><span class="fa visible-1024 fa-angle-down"></span>
                         <ul class="subMenu">
-                            @if(isset($linhvucMenu))
-                            @foreach($linhvucMenu as $key=>$item)
-                                <li><a href="{{ route('frontend.get.linhvuc', ['slug' =>$item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></li>
+                            @if(isset($linhvucSlug))
+                            @foreach($linhvucSlug as $key=>$item)
+                                <li><a href="{{ route('frontend.get.linhvuc', ['id' => $key, 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></li>
                             @endforeach
                             @endif
                         </ul>
@@ -131,11 +130,11 @@
                     {{--Start phòng--}}
                     @foreach($roomMenu as $key=>$item)
                         <li>
-                            <a href="{{ route('frontend.get.room', ['slug_room' =>$item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a><span class="fa visible-1024 fa-angle-down"></span>
+                            <a href="{{ route('frontend.get.room', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a><span class="fa visible-1024 fa-angle-down"></span>
                             <ul class="subMenu">
                                 @if(isset($item['category']))
                                     @foreach($item['category'] as $key2=>$item2)
-                                        <li><a href="{{ route('frontend.get.category', ['slug' => $item2['slug']]) }}" title="{{ $item2['title'] }}" title="{{ $item2['title'] }}">{{ $item2['title'] }}</a></li>
+                                        <li><a href="{{ route('frontend.get.category', ['id' => $item2['id'], 'slug' => $item2['slug']]) }}" title="{{ $item2['title'] }}" title="{{ $item2['title'] }}">{{ $item2['title'] }}</a></li>
                                     @endforeach
                                 @endif
                             </ul>
@@ -144,15 +143,15 @@
                     {{--End--}}
 
                     <li>
-                        <a href="/#" title="Th&#244;ng tin">Th&#244;ng tin</a><span class="fa visible-1024 fa-angle-down"></span>
+                        <a href="/#" title="Th&#244;ng tin">Thông tin</a><span class="fa visible-1024 fa-angle-down"></span>
                         <ul class="subMenu">
                             <li><a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Li&#234;n hệ</a></li>
-                            <li><a href="/page/tin-tuc" title="Tin tức">Tin tức</a></li>
-                            <li><a href="/page/gioi-thieu" title="Giới thiệu">Giới thiệu</a></li>
-                            <li><a href="/page/quy-trinh-thiet-ke-bao-gia" title="Quy tr&#236;nh thiết kế - B&#225;o gi&#225;">Quy tr&#236;nh thiết kế - B&#225;o gi&#225;</a></li>
-                            <li><a href="/page/nguon-nguyen-lieu" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
-                            <li><a href="/page/chinh-sach-bao-hanh" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
-                            <li><a href="/page/noi-that-duong-dai" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '4', 'slug' => $pageSlug[4] ? $pageSlug[4] : '']) }}" title="Tin tức">Tin tức</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '3', 'slug' => $pageSlug[3] ? $pageSlug[3] : '']) }}" title="Quy tr&#236;nh thiết kế - B&#225;o gi&#225;">Quy tr&#236;nh thiết kế - B&#225;o gi&#225;</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5] ? $pageSlug[5] : '']) }}" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
+                            <li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6] ? $pageSlug[6] : '']) }}" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
                         </ul>
                     </li>
                     {{--<li class="lang visible-1024"><a href="javascript:void(0);" onclick="changeLang($(this))" title="VN">VN</a> | <a href="javascript:void(0);" onclick="changeLang($(this))" title="EN">EN</a></li>--}}
@@ -200,10 +199,10 @@
                     <h3>Thông tin</h3>
                     <ul>
                         <li><a href="{{ route('frontend.homepage') }}" title="Trang chủ">Trang chủ</a></li>
-                        <li><a href="/page/gioi-thieu" title="Giới thiệu">Giới thiệu</a></li>
-                        <li><a href="/page/nguon-nguyen-lieu" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
-                        <li><a href="/page/chinh-sach-bao-hanh" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
-                        <li><a href="/page/noi-that-duong-dai" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5] ? $pageSlug[5] : '']) }}" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6] ? $pageSlug[6] : '']) }}" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
                     </ul>
                 </div>
 
@@ -262,7 +261,7 @@
         <li><a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
 
         <li><a href="https://www.youtube.com/" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a></li>
-        <li><a href="tel:0902 48 58 68" class="phone visible-1024"><i class="fa fa-phone"></i></a></li>
+        <li><a href="tel:0919 379 799" class="phone visible-1024"><i class="fa fa-phone"></i></a></li>
     </ul>
 </div>
 

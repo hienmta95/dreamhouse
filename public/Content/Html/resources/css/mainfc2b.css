@@ -74,7 +74,7 @@ header { border-bottom: 1px solid #ebebeb; padding: 15px 0; z-index: 100; positi
 
 @media(max-width: 1024px) {
     body { padding-top: 46px; }
-    header {padding: 5px;background-color: #d8e4e4;position: fixed;z-index: 102;top: 0;left: 0;width: 100%;}
+    header {padding: 5px;background-color: #e2e2e2;position: fixed;z-index: 102;top: 0;left: 0;width: 100%;}
         header .tbl-cell.logo { width: auto; }
             header .tbl-cell.logo a { width: auto; }
             header .tbl-cell.logo img { max-height: 35px; }
