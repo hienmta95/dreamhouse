@@ -29,8 +29,10 @@ class FrontendController extends Controller
 
         $pageSlug = [];
         $pageData = Page::get()->toArray();
-        foreach ($pageData as $page)
-            $pageSlug[$page['id']] = $page['slug'];
+        foreach ($pageData as $page) {
+            $pageSlug[$page['id']]['slug'] = $page['slug'];
+            $pageSlug[$page['id']]['title'] = $page['title'];
+        }
 
         $roomMenu = Room::with(['category', 'images'])->get()->toArray();
         $this->rooms = $roomMenu;

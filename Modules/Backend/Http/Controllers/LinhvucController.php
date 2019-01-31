@@ -132,12 +132,18 @@ class LinhvucController extends Controller
      */
     public function destroy(Request $request)
     {
-        $linhvuc = Linhvuc::find($request->id);
-        $cates = Hoatdong::where('linhvuc_id', $request->id)->get();
-        foreach ($cates as $cate)
-            $cate->delete();
-        $linhvuc->delete();
-        return redirect()->route('backend.linhvuc.index');
+        $id = $request->id;
+        if(!in_array($id, ['3', '4'])) {
+            $linhvuc = Linhvuc::find($id);
+            $cates = Hoatdong::where('linhvuc_id', $request->id)->get();
+            foreach ($cates as $cate)
+                $cate->delete();
+            $linhvuc->delete();
+            return redirect()->route('backend.linhvuc.index');
+        } else {
+            return redirect()->route('backend.linhvuc.show', ['id' =>$request->id] )->with('loi','Bạn không thể xoá bản ghi này, vì nó cần xuất hiện ở trên trang chủ.');
+        }
+
     }
 
 }

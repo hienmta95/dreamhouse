@@ -42,13 +42,13 @@
                     </a>
                 </div>
                 <div class="tbl-cell text-center hidden-1024">
-                    <a class="hot-event" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N">
+                    <a class="hot-event" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">
                         <div class="img">
                             <img src="{{ asset('images/anh1.png') }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N" alt="100% NGUY&#202;N LIỆU AN TO&#192;N">
                         </div>
                         <div class="desc">
                             <h3>
-                                <span style="color: #1ea8b3 !important;" class="color-green">100% NGUYÊN LIỆU AN TOÀN</span>
+                                <span style="color: #1ea8b3 !important;" class="color-green">{{ $pageSlug[1]['title'] }}</span>
                             </h3>
                         </div>
                     </a>
@@ -66,7 +66,7 @@
                         </li>
                     </ul>
                     <ul class="bottom">
-                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2]['slug'] ? $pageSlug[2]['slug'] : '']) }}" title="{{ $pageSlug[2]['title'] }}">{{ $pageSlug[2]['title'] }}</a></li>
                         <li><a href="{{ route('frontend.get.linhvuc', ['id' => '4', 'slug' => $linhvucSlug[4]['slug'] ? $linhvucSlug[4]['slug'] : '']) }}" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">Công trình đã thực hiện</a></li>
                         <li><a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Liên hệ</a></li>
                         <li id="hotline"><a href="tel:0919 379 799">0919 379 799</a></li>
@@ -107,7 +107,7 @@
                     <li><a href="{{ route('frontend.homepage') }}" title="Trang chủ">Trang chủ</a></li>
 
                     <li class="visible-1024">
-                        <a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a>
+                        <a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2]['slug'] ? $pageSlug[2]['slug'] : '']) }}" title="{{ $pageSlug[2]['title'] }}">{{ $pageSlug[2]['title'] }}</a>
                     </li>
                     <li class="visible-1024">
                         <a href="{{ route('frontend.get.linhvuc', ['id' => '4', 'slug' => $linhvucSlug[4]['slug'] ? $linhvucSlug[4]['slug'] : '']) }}" title="C&#244;ng tr&#236;nh đ&#227; thực hiện">Công trình đã thực hiện</a>
@@ -146,12 +146,15 @@
                         <a href="/#" title="Th&#244;ng tin">Thông tin</a><span class="fa visible-1024 fa-angle-down"></span>
                         <ul class="subMenu">
                             <li><a href="{{ route('frontend.get.lienhe') }}" title="Li&#234;n hệ">Li&#234;n hệ</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '4', 'slug' => $pageSlug[4] ? $pageSlug[4] : '']) }}" title="Tin tức">Tin tức</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '3', 'slug' => $pageSlug[3] ? $pageSlug[3] : '']) }}" title="Quy tr&#236;nh thiết kế - B&#225;o gi&#225;">Quy tr&#236;nh thiết kế - B&#225;o gi&#225;</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5] ? $pageSlug[5] : '']) }}" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
-                            <li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6] ? $pageSlug[6] : '']) }}" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
+                            @foreach($pageSlug as $key => $page)
+                                <li><a href="{{ route('frontend.get.page', ['id' => $key, 'slug' => $page['slug'] ? $page['slug'] : '']) }}" title="{{ $page['title'] }}">{{ $page['title'] }}</a></li>
+                            @endforeach
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '4', 'slug' => $pageSlug[4] ? $pageSlug[4] : '']) }}" title="Tin tức">Tin tức</a></li>--}}
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>--}}
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '3', 'slug' => $pageSlug[3] ? $pageSlug[3] : '']) }}" title="Quy tr&#236;nh thiết kế - B&#225;o gi&#225;">Quy tr&#236;nh thiết kế - B&#225;o gi&#225;</a></li>--}}
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>--}}
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5] ? $pageSlug[5] : '']) }}" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>--}}
+                            {{--<li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6] ? $pageSlug[6] : '']) }}" title="Nội thất  đương đại">Nội thất  đương đại</a></li>--}}
                         </ul>
                     </li>
                     {{--<li class="lang visible-1024"><a href="javascript:void(0);" onclick="changeLang($(this))" title="VN">VN</a> | <a href="javascript:void(0);" onclick="changeLang($(this))" title="EN">EN</a></li>--}}
@@ -199,10 +202,10 @@
                     <h3>Thông tin</h3>
                     <ul>
                         <li><a href="{{ route('frontend.homepage') }}" title="Trang chủ">Trang chủ</a></li>
-                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2] ? $pageSlug[2] : '']) }}" title="Giới thiệu">Giới thiệu</a></li>
-                        <li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguồn nguy&#234;n liệu">Nguồn nguy&#234;n liệu</a></li>
-                        <li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5] ? $pageSlug[5] : '']) }}" title="Ch&#237;nh s&#225;ch bảo h&#224;nh">Ch&#237;nh s&#225;ch bảo h&#224;nh</a></li>
-                        <li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6] ? $pageSlug[6] : '']) }}" title="Nội thất  đương đại">Nội thất  đương đại</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '2', 'slug' => $pageSlug[2]['slug'] ? $pageSlug[2]['slug'] : '']) }}" title="{{ $pageSlug[2]['title'] }}">{{ $pageSlug[2]['title'] }}</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">{{ $pageSlug[1]['title'] }}</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '5', 'slug' => $pageSlug[5]['slug'] ? $pageSlug[5]['slug'] : '']) }}" title="{{ $pageSlug[5]['title'] }}">{{ $pageSlug[5]['title'] }}</a></li>
+                        <li><a href="{{ route('frontend.get.page', ['id' => '6', 'slug' => $pageSlug[6]['slug'] ? $pageSlug[6]['slug'] : '']) }}" title="{{ $pageSlug[6]['title'] }}">{{ $pageSlug[6]['title'] }}</a></li>
                     </ul>
                 </div>
 

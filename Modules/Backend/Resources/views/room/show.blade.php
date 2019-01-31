@@ -11,6 +11,12 @@
 @endsection
 @section('content')
 {{--    <h1>{{ $room->title ? $room->title : "" }}</h1>--}}
+    @if(session('loi'))
+        <div class="alert alert-danger">
+            {{session('loi')}}
+        </div>
+    @endif
+
     <p>
         {!! Form::open(['route'=>['backend.room.destroy', $room->id], 'method'=>'DELETE']) !!}
         <a class="btn btn-success" href="{{ route('backend.room.create') }}">Tạo mới</a>

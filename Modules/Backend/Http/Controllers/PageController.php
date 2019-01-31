@@ -134,10 +134,16 @@ class PageController extends Controller
      */
     public function destroy(Request $request)
     {
-        $page = Page::find($request->id);
-        $page->delete();
+        $id = $request->id;
+        if(!in_array($id, ['1', '2', '5', '6'])) {
+            $page = Page::find($id);
+            $page->delete();
 
-        return redirect()->route('backend.page.index');
+            return redirect()->route('backend.page.index');
+        } else {
+            return redirect()->route('backend.page.show', ['id' =>$request->id] )->with('loi','Bạn không thể xoá bản ghi này, vì nó cần xuất hiện ở trên trang chủ.');
+        }
+
     }
 
 }

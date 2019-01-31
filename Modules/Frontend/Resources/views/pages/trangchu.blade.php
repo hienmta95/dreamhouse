@@ -51,7 +51,7 @@
                     <span class="btn-detail">Xem thêm</span>
                 </div>
             </a>
-            <a class="grid-item img-cover" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1] ? $pageSlug[1] : '']) }}" title="Nguyên liệu đảm bảo">
+            <a class="grid-item img-cover" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">
                 <img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="Nguyên liệu đảm bảo" style="height: 345px;">
                 <div class="desc">
                     <h3>

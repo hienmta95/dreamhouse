@@ -156,16 +156,24 @@ class RoomController extends Controller
      */
     public function destroy(Request $request)
     {
-        $room = Room::find($request->id);
-        $room->images()->detach();
-        $cates = Category::where('room_id', $request->id)->get();
-        foreach ($cates as $cate) {
-            $pro_delete = Product::where('category_id', $cate->id)->delete();
-            $cate->delete();
-        }
-        $room->delete();
+        $id = $request->id;
+        if(!in_array($id, ['1', '2', '3', '4', '5'])) {
+            $room = Room::find($id);
+            $room->status = 0;
+            $room->images()->detach();
+            $cates = Category::where('room_id', $request->id)->get();
+            foreach ($cates as $cate) {
+                $pro_delete = Product::where('category_id', $cate->id)->delete();
+                $cate->delete();
+            }
+            $room->delete();
+            $room->save();
 
-        return redirect()->route('backend.room.index');
+            return redirect()->route('backend.room.index');
+        } else {
+            return redirect()->route('backend.room.show', ['id' =>$request->id] )->with('loi','Bạn không thể xoá bản ghi này, vì nó cần xuất hiện ở trên trang chủ.');
+        }
+
     }
 
     public function deleteImage(Request $request)
