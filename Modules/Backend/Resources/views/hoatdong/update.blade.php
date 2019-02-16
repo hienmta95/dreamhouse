@@ -53,6 +53,12 @@
                 <div class="help-block">@if($errors->has('image')) {{ $errors->first('image') }} @endif</div>
             </div>
 
+            <div class="form-group @if (count($errors->all())) {{$errors->has(['ngaythang']) ? 'has-error' : 'has-success'}} @endif" >
+                <label class="control-label">Ngày lập <span class="required">*</span></label>
+                <input type="text" class="form-control{{ $errors->has('ngaythang') ? ' has-error' : '' }}" name="ngaythang" value="{{ $hoatdong->ngaythang }}">
+                <div class="help-block">@if($errors->has('ngaythang')) {{ $errors->first('ngaythang') }} @endif</div>
+            </div>
+
             <div class="form-group @if (count($errors->all())) {{$errors->has(['content']) ? 'has-error' : 'has-success'}} @endif">
                 <label class="control-label">Giới thiệu</label>
                 <textarea id="content_hoatdong" class="form-control{{ $errors->has('content') ? ' has-error' : '' }}" name="content" maxlength="255" rows="3">{{ $hoatdong->content }}</textarea>

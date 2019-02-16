@@ -4,6 +4,7 @@ namespace Modules\Frontend\Http\Controllers;
 
 use App\Lienhe;
 use App\Product;
+use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -13,10 +14,15 @@ use App\Hoatdong;
 use App\Room;
 use App\Page;
 use App\Category;
+use App\User;
+use App\Notifications\ToUser;
+use App\Notifications\ToAdmin;
+
 
 class FrontendController extends Controller
 {
     private $rooms;
+    protected $mail_admin = 'hien.kbhbt@gmail.com';
 
     function __construct(Request $request)
     {
@@ -58,13 +64,22 @@ class FrontendController extends Controller
         $congtrinhdathuchien = $this->getHoatDong('cong-trinh-da-thuc-hien', 4, 5);
         $duandathietke = $this->getHoatDong('du-an-da-thiet-ke', 3, 3);
 
-        $roomSlug = [];
-        foreach ($this->rooms as $room) {
-            $roomSlug[$room['id']]['slug'] = $room['slug'];
-            $roomSlug[$room['id']]['title'] = $room['title'];
+//        $roomSlug = [];
+//        foreach ($this->rooms as $room) {
+//            $roomSlug[$room['id']]['slug'] = $room['slug'];
+//            $roomSlug[$room['id']]['title'] = $room['title'];
+//        }
+
+        $section = [];
+        $sections = Section::with('image')->get();
+        foreach($sections as $key=>$item) {
+            $section[$item->position][$key]['text1'] = $item->text1;
+            $section[$item->position][$key]['text2'] = $item->text2;
+            $section[$item->position][$key]['link'] = $item->link;
+            $section[$item->position][$key]['image'] = asset('/') . $item->image->url;
         }
 
-        return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke', 'roomSlug'));
+        return view('frontend::pages.trangchu', compact('slides', 'congtrinhdathuchien', 'duandathietke', 'section'));
     }
 
     public function getHoatDong($slug, $id_linhvuc, $limit)
@@ -138,9 +153,27 @@ class FrontendController extends Controller
     {
         $req = $request->all();
         $create = Lienhe::create($req);
+
+        $this->sendMailUser($request->email, $request->all());
+        $this->sendMailAdmin($this->mail_admin, $request->all());
+
         if($create)
             return redirect()->route('frontend.get.thanhcong');
         return view('frontend::pages.lienhe');
+    }
+
+    public function sendMailUser($email, $data)
+    {
+        $user = new User();
+        $user->email = $email;
+        $user->notify(new ToUser($data));
+    }
+
+    public function sendMailAdmin($email, $data)
+    {
+        $user = new User();
+        $user->email = $email;
+        $user->notify(new ToAdmin($data));
     }
 
     public function getCategory(Request $request)

@@ -27,6 +27,7 @@
             <tr><th>Mô tả</th><td>{!! $hoatdong->content ? $hoatdong->content : "<span class='not-set'>(not set)</span>"  !!}</td></tr>
             <tr><th>Nổi bật</th><td>{{ $hoatdong->noibat == 1 ? "yes" : "no" }}</td></tr>
             <tr><th>Hình ảnh</th><td>{!! $hoatdong->image ? "<img  class='show-images' src='".asset('/').$hoatdong->image->url."' alt=''>" : "<span class='not-set'>(not set)</span>"!!}</td></tr>
+            <tr><th>Ngày tạo hiển thị</th><td><p class="c_timezone">{{ $hoatdong->ngaythang }}</p></td></tr>
             <tr><th>Ngày tạo</th><td><p class="c_timezone">{{ $hoatdong->created_at }}</p></td></tr>
             <tr><th>Ngày sửa</th><td><p class="c_timezone">{{ $hoatdong->updated_at }}</p></td></tr>
         </tbody>

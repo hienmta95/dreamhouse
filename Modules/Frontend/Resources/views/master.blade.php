@@ -37,19 +37,22 @@
             <div class="tbl">
                 <div class="tbl-cell logo">
                     <a href="{{ route('frontend.homepage') }}" title="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE">
-                        <img src="{{ asset('images/logo.png') }}" title="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" alt="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" class="hidden-1024"/>
-                        <img src="{{ asset('images/logo.png') }}" title="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" alt="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" class="visible-1024"/>
+                        <img src="{{ asset('images/logodreamgo.png') }}" title="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" alt="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" class="hidden-1024"/>
+                        <img src="{{ asset('images/logodreamgo.png') }}" title="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" alt="CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE" class="visible-1024"/>
                     </a>
                 </div>
                 <div class="tbl-cell text-center hidden-1024">
                     <a class="hot-event" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">
                         <div class="img">
-                            <img src="{{ asset('images/anh1.png') }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N" alt="100% NGUY&#202;N LIỆU AN TO&#192;N">
+                            <img src="{{ asset('images/xanh1.png') }}" title="100% NGUY&#202;N LIỆU AN TO&#192;N" alt="100% NGUY&#202;N LIỆU AN TO&#192;N">
                         </div>
                         <div class="desc">
                             <h3>
-                                <span style="color: #1ea8b3 !important;" class="color-green">{{ $pageSlug[1]['title'] }}</span>
+                                <span style="color: #fff !important;" class="color-green">100% Nguồn nguyên liệu</span>
                             </h3>
+                            <h4 style="margin: 0px;">
+                                <span style="color: #fff !important;" class="color-green">chất lượng đảm bảo, xuất xứ rõ ràng.</span>
+                            </h4>
                         </div>
                     </a>
                 </div>
@@ -73,7 +76,7 @@
                     </ul>
                 </div>
 
-                <div class="tbl-cell top-nav block-mobile">
+                <div class="tbl-cell top-nav block-mobile hidden-1024">
                     <ul class="bottom">
                         <li id="hotline"><a href="tel:0919 379 799">0919 379 799</a></li>
                     </ul>
@@ -212,7 +215,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <h3>Google Map</h3>
                     {{--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.834648675476!2d105.62943611545623!3d20.99926428601441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313450e67277115f%3A0x39285f7fa6acf67b!2sDreamGo+Workshop!5e0!3m2!1svi!2s!4v1490326755177" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen=""></iframe>--}}
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d25035.370498924123!2d105.69035442884437!3d21.09673982110382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zS2h1IGzDoG5nIG5naOG7gSBUw6JuIEjhu5lpLCDEkGFuIFBoxrDhu6NuZywgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1548168772303" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7732.884316771692!2d106.05941332244026!3d21.173218717269386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313509553f9bab8b%3A0x201c88cf589a9558!2zMzAwIE5ndXnhu4VuIFRyw6NpLCBWw7UgQ8aw4budbmcsIELhuq9jIE5pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1550336998186" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
 
                 <div class="col-md-3 col-sm-12 col-xs-12">
@@ -260,13 +263,15 @@
 <a href="javascript:void(0)" id="btn-to-top">Lên đầu trang</a>
 <div id="fixed-icon">
     <ul>
-        <li><a href="{{ route('frontend.homepage') }}" class="cart"><i class="fa fa-shopping-cart"></i></a></li>
+        {{--<li><a href="{{ route('frontend.homepage') }}" class="cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
         <li><a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
 
-        <li><a href="https://www.youtube.com/" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a></li>
-        <li><a href="tel:0919 379 799" class="phone visible-1024"><i class="fa fa-phone"></i></a></li>
+        {{--<li><a href="https://www.youtube.com/" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a></li>--}}
+        <li><a href="tel:0919 379 799" class="phone"><i class="fa fa-phone"></i></a></li>
     </ul>
 </div>
+
+
 
     <script src="{{ asset('Content/Html/resources/js/jquery-1.12.1.min.js') }}"></script>
     <script src="{{ asset('Content/Html/resources/js/bootstrap.min.js') }}"></script>
@@ -297,6 +302,64 @@
 
         })(jQuery);
     </script>
+
+<script type="text/javascript">
+    jQuery(function($) {
+        $('body').append('<a style="display:none;" class="callus" href="tel:0919379799">0919 379 799</a>');
+        var lastScrollTop = 0;
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                // downscroll code
+                $('a.callus').removeClass('display');
+            } else {
+                $('a.callus').addClass('display');
+            }
+            lastScrollTop = st;
+        });
+    });
+</script>
+
+<style type="text/css" media="screen and (max-width:767px)">
+    a.callus {
+        display: block !important;
+        position: fixed;
+        z-index: 9999;
+        bottom: 20px;
+        left: 20px;
+        background: #4a6f72 url(http://statics.vietmoz.info/img/ico/glyphicons/earphone-white.png) no-repeat;
+        background-position: 10px center;
+        background-size: 20px;
+        border-radius: 1000px;
+        padding: 5px 10px 5px 40px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -moz-transform: scale(0);
+        -webkit-transform: scale(0);
+        -o-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    a.display.callus {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+</style>
 
     @yield('scripts')
 

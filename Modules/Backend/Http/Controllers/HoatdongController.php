@@ -33,6 +33,10 @@ class HoatdongController extends Controller
             ->addColumn('linhvuc',function ($row){
                 return "<p>".$row->linhvuc->title."</p>";
             })
+            ->addColumn('ngaythang',function ($row){
+                $ngay = $row->ngaythang ? $row->ngaythang : "01/01/2019";
+                return "<p>". $ngay ."</p>";
+            })
             ->editColumn('noibat',function ($row){
                 $abc = $row->noibat == 1 ? 'yes' : 'no' ;
                 return "<p>". $abc ."</p>";
@@ -52,7 +56,7 @@ class HoatdongController extends Controller
                 </button>
             </form>';
             })
-            ->rawColumns(['action' => 'action', 'content' => 'content', 'linhvuc'=>'linhvuc', 'noibat'=>'noibat', 'image'=>'image'])
+            ->rawColumns(['action' => 'action', 'content' => 'content', 'linhvuc'=>'linhvuc', 'noibat'=>'noibat', 'image'=>'image', 'ngaythang'=>'ngaythang'])
             ->addIndexColumn()
             ->make(true);
     }
@@ -79,6 +83,7 @@ class HoatdongController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'image' => 'required',
+            'ngaythang' => 'required',
             'linhvuc_id' => 'required',
         ]);
 
@@ -132,6 +137,7 @@ class HoatdongController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'linhvuc_id' => 'required',
+            'ngaythang' => 'required',
         ]);
 
         $hoatdong = Hoatdong::find($request->id);
@@ -141,6 +147,7 @@ class HoatdongController extends Controller
             $hoatdong->linhvuc_id = $request->linhvuc_id;
             $hoatdong->noibat = $request->noibat;
             $hoatdong->content = $request->content;
+            $hoatdong->ngaythang = $request->ngaythang;
             if ($request->hasFile('image')) {
                 $file = $request->image;
                 $imageFile = new ImageFile();

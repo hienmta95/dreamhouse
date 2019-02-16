@@ -66,6 +66,14 @@ if (! function_exists('active_route')) {
             ];
         }
 
+        if ($route == 6) {
+            $route = [
+                'backend.section.index','backend.section.show',
+                'backend.section.create','backend.section.edit',
+
+            ];
+        }
+
         if (is_array($route)) {
             if (call_user_func_array('Route::is', $route)) {
                 return $output;
@@ -161,6 +169,22 @@ if (! function_exists('active_route')) {
                 <li class="{{ active_route('backend.slide.*') }}"><a href="{{ route('backend.slide.index') }}">» Slide trang chủ</a></li>
                 <li class="{{ active_route('backend.user.*') }}"><a href="{{ route('backend.user.index') }}">» Admins </a></li>
                 <li class="{{ active_route('backend.lienhe.*') }}"><a href="{{ route('backend.lienhe.index') }}">» Liên hệ </a></li>
+            </ul>
+        </li>
+        <!-- End User management data -->
+
+        <!-- User management data -->
+        <li class="treeview {{ active_route(6) }}">
+            <a href="#">
+                <i class="glyphicon glyphicon-cog"></i>
+                <span>Quản lý trang chủ</span>
+                <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class=""><a href="{{ route('backend.section.index', '1') }}">» Phần 3 hình ảnh </a></li>
+                <li class=""><a href="{{ route('backend.section.index', '2') }}">» Phần 6 hình ảnh </a></li>
             </ul>
         </li>
         <!-- End User management data -->

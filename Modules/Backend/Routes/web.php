@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/page/indexData', 'PageController@indexData')->name('backend.page.indexData');
     Route::get('/lienhe/indexData', 'LienheController@indexData')->name('backend.lienhe.indexData');
     Route::get('/slide/indexData', 'SlideController@indexData')->name('backend.slide.indexData');
+    Route::get('/section/{position}/indexData', 'SectionController@indexData')->name('backend.section.indexData');
+
     Route::post('/room/image/delete/{room_id}', 'RoomController@deleteImage')->name('backend.room.image.delete');
     Route::post('/product/image/delete/{product_id}', 'ProductController@deleteImage')->name('backend.product.image.delete');
     Route::post('/upload', 'ProductController@uploadImage')->name('backend.uploadPhoto');
@@ -107,6 +109,15 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/slide/update/{id}', 'SlideController@edit')->name('backend.slide.edit');
         Route::put('/slide/update/{id}', 'SlideController@update')->name('backend.slide.update');
         Route::delete('/slide/delete/{id}', 'SlideController@destroy')->name('backend.slide.destroy');
+
+        // Management
+        Route::get('/section/{position}', 'SectionController@index')->name('backend.section.index');
+        Route::get('/section/create/{position}', 'SectionController@create')->name('backend.section.create');
+        Route::post('/section/{position}', 'SectionController@store')->name('backend.section.store');
+        Route::get('/section/view/{position}/{id}', 'SectionController@show')->name('backend.section.show');
+        Route::get('/section/update/{position}/{id}', 'SectionController@edit')->name('backend.section.edit');
+        Route::put('/section/update/{position}/{id}', 'SectionController@update')->name('backend.section.update');
+        Route::delete('/section/delete/{id}', 'SectionController@destroy')->name('backend.section.destroy');
 
     });
 });

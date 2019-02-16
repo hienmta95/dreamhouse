@@ -69,7 +69,7 @@ Tạo mới sản phẩm
 
             <div class="form-group @if (count($errors->all())) {{$errors->has(['price']) ? 'has-error' : 'has-success'}} @endif" >
                 <label class="control-label">Giá bán</label>
-                <input type="text" class="form-control{{ $errors->has('price') ? ' has-error' : '' }}" name="price" value="{{ old('price') }}">
+                <input type="number" class="form-control{{ $errors->has('price') ? ' has-error' : '' }}" name="price" value="{{ old('price') }}">
                 <div class="help-block">@if($errors->has('price')) {{ $errors->first('price') }} @endif</div>
             </div>
 
@@ -80,7 +80,7 @@ Tạo mới sản phẩm
             </div>
 
             <div class="form-group @if (count($errors->all())) {{$errors->has(['image']) ? 'has-error' : 'has-success'}} @endif">
-                <label class="control-label">Hình ảnh</label>
+                <label class="control-label">Hình ảnh <span class="required">*</span></label>
                 <input id="input-24" name="image[]" type="file" multiple>
                 <div class="help-block">@if($errors->has('image')) {{ $errors->first('image') }} @endif</div>
             </div>

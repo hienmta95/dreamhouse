@@ -36,34 +36,57 @@
 
             </div>
         </div>
-        <div class="grid">
-            <a class="grid-item grid-item-width2 video" f="#" title="Video" style="padding-bottom: 345px !important;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3bJkVSMs4dw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </a>
+        <div class="grid" id="grid1">
+            @foreach($section as $key=>$items)
+                @if($key == 1)
+                    $@foreach($items as $key2=>$item)
+                         @if($key2 == 0)
+                            <a class="grid-item grid-item-width2 video" f="#" title="Video" style="padding-bottom: 345px;">
+                            <img src="{{ $item['image'] }}" alt="Liên hệ-1" title="Liên hệ-1" style="height: auto; width: 100%;">
+                            </a>
+                        @else
+                            <a class="grid-item img-cover {{ $key2 == 6 ? "cover1" : "cover2" }}" href="{{ $item['link'] }}" title="Liên hệ">
+                                <img src="{{ $item['image'] }}" alt="Liên hệ" title="Liên hệ" style="height: 345px;">
+                                <div class="desc">
+                                    <h3>
+                                        <p><small>{{ $item['text1'] }}</small>{{ $item['text2'] }}</p>
 
-            <a class="grid-item img-cover" href="{{ route('frontend.get.lienhe') }}" title="Liên hệ">
-                <img src="{{ asset('/').'Uploads/images/go1.jpg' }}" alt="Liên hệ" title="Liên hệ" style="height: 345px;">
-                <div class="desc">
-                    <h3>
-                        <p><small>Li&ecirc;n hệ</small>với DreamGo</p>
+                                    </h3>
+                                    <span class="btn-detail">Xem thêm</span>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
 
-                    </h3>
-                    <span class="btn-detail">Xem thêm</span>
-                </div>
-            </a>
-            <a class="grid-item img-cover" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">
-                <img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="Nguyên liệu đảm bảo" style="height: 345px;">
-                <div class="desc">
-                    <h3>
-                        <p><small>Nguồn nguyên liệu</small>đảm bảo</p>
+            {{--<a class="grid-item grid-item-width2 video" f="#" title="Video" style="padding-bottom: 345px;">--}}
+                {{--<img src="{{ asset('/').'images/sdsds.jpg' }}" alt="Liên hệ" title="Liên hệ" style="height: auto; width: 100%;">--}}
+            {{--</a>--}}
 
-                    </h3>
-                    <span class="btn-detail">Xem thêm</span>
-                </div>
-            </a>
+            {{--<a class="grid-item img-cover cover1" href="{{ route('frontend.get.lienhe') }}" title="Liên hệ">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/go1.jpg' }}" alt="Liên hệ" title="Liên hệ" style="height: 345px;">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3>--}}
+                        {{--<p><small>Li&ecirc;n hệ</small>với DreamGo</p>--}}
+
+                    {{--</h3>--}}
+                    {{--<span class="btn-detail">Xem thêm</span>--}}
+                {{--</div>--}}
+            {{--</a>--}}
+            {{--<a class="grid-item img-cover cover2" href="{{ route('frontend.get.page', ['id' => '1', 'slug' => $pageSlug[1]['slug'] ? $pageSlug[1]['slug'] : '']) }}" title="{{ $pageSlug[1]['title'] }}">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/Lien%20he%20voi%20chung%20toi.jpg' }}" alt="Nguyên liệu đảm bảo" title="Nguyên liệu đảm bảo" style="height: 345px;">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3>--}}
+                        {{--<p><small>Nguồn nguyên liệu</small>đảm bảo</p>--}}
+
+                    {{--</h3>--}}
+                    {{--<span class="btn-detail">Xem thêm</span>--}}
+                {{--</div>--}}
+            {{--</a>--}}
         </div>
     </div>
-    <div class="index-products list-products">
+    <div class="index-products custom">
         <div class="container">
             <div class="title">
                 <h2>Sản phẩm</h2>
@@ -73,80 +96,80 @@
 
             </div>
         </div>
-        <div class="grid">
+        <div class="container grid">
+            @foreach($section as $key=>$items)
+                @if($key == 2)
+                @foreach($items as $item)
+                    <a class="grid-item grid-item-width2 img-cover" href="{{ $item['link'] }}" title="{{ $item['text1'] . $item['text2'] }}">
+                        @if(!empty($item['image']))
+                            <img src="{{ $item['image'] }}" alt="{{ $item['text1'] . $item['text2'] }}">
+                        @endif
+                        <div class="desc">
+                            <h3><p>{{ $item['text1'] }}<br />
+                                    {{ $item['text2'] }}</p>
+                            </h3>
+                        </div>
+                    </a>
+                @endforeach
+                @endif
+            @endforeach
 
-            {{--@foreach($roomMenu as $key=>$item)--}}
-                {{--@if($item['slug'] != 'san-pham-khac')--}}
-                    {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' =>$item['id']]) }}" title="{{ $key+2 }}">--}}
-                        {{--@if(!empty($item['images']))--}}
-                            {{--<img src="{{ asset('/').$item['images'][0]['url'] }}" alt="{{ $item['title'] }}">--}}
-                        {{--@endif--}}
-                        {{--<div class="desc">--}}
-                            {{--<h3><p>Nội thất<br />--}}
-                                    {{--{{ $item['title'] }}</p>--}}
+            {{--<a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="1">--}}
+                {{--<img src="{{ asset('/')."Uploads/images/banan.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>B&agrave;n ăn</p>--}}
 
-                            {{--</h3>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--@endif--}}
-            {{--@endforeach--}}
+                        {{--<p>hiện đại</p>--}}
 
-            <a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="1">
-                <img src="{{ asset('/')."Uploads/images/banan.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">
-                <div class="desc">
-                    <h3><p>B&agrave;n ăn</p>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
 
-                        <p>hiện đại</p>
+            {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="2">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/phong-khach.jpg' }}" alt="Ph&#242;ng kh&#225;ch">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>Nội thất<br />--}}
+                            {{--Ph&ograve;ng kh&aacute;ch</p>--}}
 
-                    </h3>
-                </div>
-            </a>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
+            {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '2', 'slug' => $roomSlug[2]['slug'] ? $roomSlug[2]['slug'] : '']) }}" title="3">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/phong-ngu.jpg' }}" alt="Ph&#242;ng ngủ">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>Nội thất<br />--}}
+                            {{--Ph&ograve;ng ngủ</p>--}}
 
-            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="2">
-                <img src="{{ asset('/').'Uploads/images/phong-khach.jpg' }}" alt="Ph&#242;ng kh&#225;ch">
-                <div class="desc">
-                    <h3><p>Nội thất<br />
-                            Ph&ograve;ng kh&aacute;ch</p>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
+            {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="4">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/phong-an.jpg' }}" alt="Bếp - Ph&#242;ng ăn">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>Nội thất<br />--}}
+                            {{--Ph&ograve;ng ăn</p>--}}
 
-                    </h3>
-                </div>
-            </a>
-            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '2', 'slug' => $roomSlug[2]['slug'] ? $roomSlug[2]['slug'] : '']) }}" title="3">
-                <img src="{{ asset('/').'Uploads/images/phong-ngu.jpg' }}" alt="Ph&#242;ng ngủ">
-                <div class="desc">
-                    <h3><p>Nội thất<br />
-                            Ph&ograve;ng ngủ</p>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
+            {{--<a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '4', 'slug' => $roomSlug[4]['slug'] ? $roomSlug[4]['slug'] : '']) }}" title="5">--}}
+                {{--<img src="{{ asset('/')."Uploads/images/treem1.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>Nội thất<br />--}}
+                            {{--Ph&ograve;ng trẻ em</p>--}}
 
-                    </h3>
-                </div>
-            </a>
-            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '3', 'slug' => $roomSlug[3]['slug'] ? $roomSlug[3]['slug'] : '']) }}" title="4">
-                <img src="{{ asset('/').'Uploads/images/phong-an.jpg' }}" alt="Bếp - Ph&#242;ng ăn">
-                <div class="desc">
-                    <h3><p>Nội thất<br />
-                            Ph&ograve;ng ăn</p>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
+            {{--<a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="6">--}}
+                {{--<img src="{{ asset('/').'Uploads/images/phong-lam-viec.jpg' }}" alt="Ph&#242;ng l&#224;m việc">--}}
+                {{--<div class="desc">--}}
+                    {{--<h3><p>Nội thất<br />--}}
+                            {{--Ph&ograve;ng l&agrave;m việc</p>--}}
 
-                    </h3>
-                </div>
-            </a>
-            <a class="grid-item img-cover" href="{{ route('frontend.get.room', ['id' => '4', 'slug' => $roomSlug[4]['slug'] ? $roomSlug[4]['slug'] : '']) }}" title="5">
-                <img src="{{ asset('/')."Uploads/images/treem1.jpg" }}" alt="B&#224;n ăn gỗ tự nhi&#234;n">
-                <div class="desc">
-                    <h3><p>Nội thất<br />
-                            Ph&ograve;ng trẻ em</p>
-
-                    </h3>
-                </div>
-            </a>
-            <a class="grid-item grid-item-width2 img-cover" href="{{ route('frontend.get.room', ['id' => '1', 'slug' => $roomSlug[1]['slug'] ? $roomSlug[1]['slug'] : '']) }}" title="6">
-                <img src="{{ asset('/').'Uploads/images/phong-lam-viec.jpg' }}" alt="Ph&#242;ng l&#224;m việc">
-                <div class="desc">
-                    <h3><p>Nội thất<br />
-                            Ph&ograve;ng l&agrave;m việc</p>
-
-                    </h3>
-                </div>
-            </a>
+                    {{--</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
         </div>
 
     </div>

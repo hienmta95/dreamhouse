@@ -8,7 +8,7 @@ class Hoatdong extends Model
 {
 
     protected $fillable = [
-        'id', 'title', 'created_at', 'updated_at', 'slug', 'content', 'linhvuc_id', 'noibat', 'image_id'
+        'id', 'title', 'created_at', 'updated_at', 'slug', 'content', 'linhvuc_id', 'noibat', 'image_id', 'ngaythang'
     ];
 
 

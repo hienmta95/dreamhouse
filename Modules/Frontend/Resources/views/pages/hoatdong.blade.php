@@ -42,7 +42,7 @@
                 <h1>{{ $data['title'] }}</h1>
             </div>
             <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="col-md-8 col-sm-6 col-xs-12 hoatdong">
                     <p class="creat-date">Ngày đăng: {{ date_format(date_create($data['updated_at']), "d/m/Y") }}</p>
 
                     <p>Thiết kế : DreamHouse team.</p>
@@ -98,9 +98,9 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iSizF8FgMfM" frameborder="0" gesture="media" allowfullscreen></iframe>
-                        </div>
+                        {{--<div class="video">--}}
+                            {{--<iframe width="560" height="315" src="https://www.youtube.com/embed/iSizF8FgMfM" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
             </div>

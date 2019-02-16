@@ -18,7 +18,7 @@ class LinhvucController extends Controller
      */
     public function index()
     {
-        return view('backend::Linhvuc.index');
+        return view('backend::linhvuc.index');
     }
 
     public function indexData()
