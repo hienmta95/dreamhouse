@@ -156,7 +156,7 @@ header { border-bottom: 1px solid #ebebeb; padding: 30px 0px; z-index: 100; posi
             #sticker ul.main-menu ul > li > a:hover { background-color: #4a6f72; color: #fff; transition: ease-in-out .3s; }
 
 @media(max-width: 1024px) {
-    #sticker { padding: 10px 0; background: #f6f6f6; display: none; overflow: auto; position: fixed !important; top: 46px !important; width: 100%; }
+    #sticker { padding: 10px 0; background: #f6f6f6; display: none; overflow: auto; position: fixed !important; top: 65px !important; width: 100%; }
     #m-search-form { position: relative; padding: 10px 15px 10px 15px; }
         #m-search-form input[type=text] { /* border: none !important; */ padding: 5px 13px; width: 100%; outline: none !important; background-color: #fafafa; }
         #m-search-form button { color: #fff; background-color: #393939; border: none; margin-left: 0; padding: 7px 12px; }
