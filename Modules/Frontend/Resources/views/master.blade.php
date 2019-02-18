@@ -59,8 +59,8 @@
 
                 <div class="tbl-cell top-nav hidden-1024">
                     <ul class="top">
-                        {{--<li><a href="javascript:void(0);" onclick="changeLang($(this))" data-lang="/vi/vi" title="">VN</a></li>--}}
-                        {{--<li><a href="javascript:void(0);" onclick="changeLang($(this))" data-lang="/vi/en" title="">EN</a></li>--}}
+                        <li><a href="javascript:void(0);" title=""><img style="max-width: 25px;" src="{{ asset('/images/en.jpg') }}" /></a></li>
+                        <li><a href="javascript:void(0);" title=""><img style="max-width: 25px;" src="{{ asset('/images/vi.jpg') }}" /></a></li>
                         <li id="search-form">
                             <form action="{{ route('frontend.search') }}">
                                 <input type="text" name="keyword" placeholder="Search" />
