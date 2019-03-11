@@ -85,56 +85,56 @@
                         </ul>
                     </div>
 
-                    <div class="product-info">
-                        <h2>L&#253; do lựa chon DreamGo</h2>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info">
-                                    <div class="img img-cover">
-                                        <img src="{{ asset('/').'Uploads/images/Lydo/giaxuat.jpg' }}" alt="Gi&#225; Xuất Xưởng" title="Gi&#225; Xuất Xưởng">
-                                    </div>
+                    {{--<div class="product-info">--}}
+                        {{--<h2>L&#253; do lựa chon DreamGo</h2>--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">--}}
+                                {{--<div class="info">--}}
+                                    {{--<div class="img img-cover">--}}
+                                        {{--<img src="{{ asset('/').'Uploads/images/Lydo/giaxuat.jpg' }}" alt="Gi&#225; Xuất Xưởng" title="Gi&#225; Xuất Xưởng">--}}
+                                    {{--</div>--}}
 
-                                    <div class="desc">
-                                        <h3><a href="/gia-xuat-xuong">Gi&#225; Xuất Xưởng</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info">
-                                    <div class="img img-cover">
-                                        <img src="{{ asset('/').'Uploads/images/Lydo/nguyenlieu.jpg' }}" alt="Nguy&#234;n liệu chọn lọc" title="Nguy&#234;n liệu chọn lọc">
-                                    </div>
+                                    {{--<div class="desc">--}}
+                                        {{--<h3><a href="/gia-xuat-xuong">Gi&#225; Xuất Xưởng</a></h3>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">--}}
+                                {{--<div class="info">--}}
+                                    {{--<div class="img img-cover">--}}
+                                        {{--<img src="{{ asset('/').'Uploads/images/Lydo/nguyenlieu.jpg' }}" alt="Nguy&#234;n liệu chọn lọc" title="Nguy&#234;n liệu chọn lọc">--}}
+                                    {{--</div>--}}
 
-                                    <div class="desc">
-                                        <h3><a href="/nguon-nguyen-lieu">Nguy&#234;n liệu chọn lọc</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info">
-                                    <div class="img img-cover">
-                                        <img src="{{ asset('/').'Uploads/images/Lydo/tuvan.jpg' }}" alt="Tư vấn ph&#249; hợp nhu cầu" title="Tư vấn ph&#249; hợp nhu cầu">
-                                    </div>
+                                    {{--<div class="desc">--}}
+                                        {{--<h3><a href="/nguon-nguyen-lieu">Nguy&#234;n liệu chọn lọc</a></h3>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">--}}
+                                {{--<div class="info">--}}
+                                    {{--<div class="img img-cover">--}}
+                                        {{--<img src="{{ asset('/').'Uploads/images/Lydo/tuvan.jpg' }}" alt="Tư vấn ph&#249; hợp nhu cầu" title="Tư vấn ph&#249; hợp nhu cầu">--}}
+                                    {{--</div>--}}
 
-                                    <div class="desc">
-                                        <h3><a href="/tu-van-phu-hop-nhu-cau">Tư vấn ph&#249; hợp nhu cầu</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info">
-                                    <div class="img img-cover">
-                                        <img src="{{ asset('/').'Uploads/images/Lydo/baohanh.jpg' }}" alt="Chế độ bảo h&#224;nh tận t&#226;m" title="Chế độ bảo h&#224;nh tận t&#226;m">
-                                    </div>
+                                    {{--<div class="desc">--}}
+                                        {{--<h3><a href="/tu-van-phu-hop-nhu-cau">Tư vấn ph&#249; hợp nhu cầu</a></h3>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">--}}
+                                {{--<div class="info">--}}
+                                    {{--<div class="img img-cover">--}}
+                                        {{--<img src="{{ asset('/').'Uploads/images/Lydo/baohanh.jpg' }}" alt="Chế độ bảo h&#224;nh tận t&#226;m" title="Chế độ bảo h&#224;nh tận t&#226;m">--}}
+                                    {{--</div>--}}
 
-                                    <div class="desc">
-                                        <h3><a href="/che-do-bao-hanh-tan-tam">Chế độ bảo h&#224;nh tận t&#226;m</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    {{--<div class="desc">--}}
+                                        {{--<h3><a href="/che-do-bao-hanh-tan-tam">Chế độ bảo h&#224;nh tận t&#226;m</a></h3>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
-                    </div>
+                    {{--</div>--}}
 
 
                 </div>

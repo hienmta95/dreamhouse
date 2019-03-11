@@ -33,7 +33,7 @@
                             </div>
                             <div class="desc">
                                 <div class="container">
-                                    <h3>Phòng khách</h3>
+                                    <h3>{{ $data['title'] }}</h3>
                                     <p>{!! $data['introduce'] !!}</p>
                                 </div>
                             </div>

@@ -568,4 +568,11 @@ header .tbl-cell.top-nav.block-mobile{display: none}
     max-width: 423px;
     float: left;
     top: 0px !important;
+    height: 250px;
+}
+
+@media (max-width: 992px) {
+    .index-products.custom .grid .grid-item {
+        max-height: 130px;
+    }
 }

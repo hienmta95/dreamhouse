@@ -42,7 +42,7 @@
                     $@foreach($items as $key2=>$item)
                          @if($key2 == 0)
                             <a class="grid-item grid-item-width2 video" f="#" title="Video" style="padding-bottom: 345px;">
-                            <img src="{{ $item['image'] }}" alt="Liên hệ-1" title="Liên hệ-1" style="height: auto; width: 100%;">
+                            <img src="{{ $item['image'] }}" alt="Liên hệ-1" title="Liên hệ-1" style="height: auto; width: 100%; min-height: 200px;">
                             </a>
                         @else
                             <a class="grid-item img-cover {{ $key2 == 6 ? "cover1" : "cover2" }}" href="{{ $item['link'] }}" title="Liên hệ">
@@ -175,7 +175,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6 col-xs-12" style="padding-top: 20px">
                 <div id="index-news">
                     <h2><a href="{{ route('frontend.get.linhvuc', [ 'id' => $congtrinhdathuchien['linhvuc']['id'], 'slug' => $congtrinhdathuchien['linhvuc']['slug'] ]) }}" title="{{ $congtrinhdathuchien['linhvuc']['title'] }}">{{ $congtrinhdathuchien['linhvuc']['title'] }}</a></h2>
                     @if(isset($congtrinhdathuchien['list']))
@@ -209,7 +209,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6 col-xs-12" style="padding-top: 20px">
                 <div id="index-consult">
                     <h2><a href="{{ route('frontend.get.linhvuc', ['id' => $duandathietke['linhvuc']['id'], 'slug' => $duandathietke['linhvuc']['slug'] ]) }}" title="{{ $duandathietke['linhvuc']['title'] }}">{{ $duandathietke['linhvuc']['title'] }}</a></h2>
 
