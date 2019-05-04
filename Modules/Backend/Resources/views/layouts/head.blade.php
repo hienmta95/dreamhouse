@@ -91,6 +91,8 @@
     <script type="text/javascript" src="{{ asset('/backend/dist/js/jquery.bootstrap-duallistbox.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('/js/polyfill.min.js') }}"></script>
+    <script src="{!! asset('/backend/bower_components/ckeditor/ckeditor.js') !!}"></script>
+
 
     @stack('css')
 
