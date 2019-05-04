@@ -53,6 +53,17 @@ Tạo mới hoạt động
             <div class="form-group @if (count($errors->all())) {{$errors->has(['content']) ? 'has-error' : 'has-success'}} @endif">
                 <label class="control-label">Nội dung </label>
                 <textarea id="content_hoatdong" class="form-control{{ $errors->has('content') ? ' has-error' : '' }}" name="content" maxlength="255" rows="3">{{ old('content') }}</textarea>
+                <script type="text/javascript">
+                    var editor = CKEDITOR.replace('content_hoatdong',{
+                        language:'vi',
+                        filebrowserBrowseUrl :'/js/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '/js/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : '/js/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                    });
+                </script>
                 <div class="help-block">@if($errors->has('content')) {{ $errors->first('content') }} @endif</div>
             </div>
 
@@ -77,7 +88,6 @@ Tạo mới hoạt động
 @push('scripts')
 
     <script src="{!! asset('/backend/bower_components/ckeditor/ckeditor.js') !!}"></script>
-    <script> CKEDITOR.replace('content_hoatdong'); </script>
 
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput.css')?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput-rtl.css')?>" type="text/css">
