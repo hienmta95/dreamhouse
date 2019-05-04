@@ -82,12 +82,34 @@
             <div class="form-group @if (count($errors->all())) {{$errors->has(['chatlieu']) ? 'has-error' : 'has-success'}} @endif">
                 <label class="control-label">Chất liệu</label>
                 <textarea id="chatlieu_product" class="form-control{{ $errors->has('chatlieu') ? ' has-error' : '' }}" name="chatlieu" maxlength="255" rows="3">{{ $product->chatlieu }}</textarea>
+                <script type="text/javascript">
+                    var editor = CKEDITOR.replace('chatlieu_product',{
+                        language:'vi',
+                        filebrowserBrowseUrl :'/js/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '/js/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : '/js/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                    });
+                </script>
                 <div class="help-block">@if($errors->has('chatlieu')) {{ $errors->first('chatlieu') }} @endif</div>
             </div>
 
             <div class="form-group @if (count($errors->all())) {{$errors->has(['description']) ? 'has-error' : 'has-success'}} @endif">
                 <label class="control-label">Giới thiệu</label>
                 <textarea id="description_product" class="form-control{{ $errors->has('description') ? ' has-error' : '' }}" name="description" maxlength="255" rows="3">{{ $product->description }}</textarea>
+                <script type="text/javascript">
+                    var editor = CKEDITOR.replace('description_product',{
+                        language:'vi',
+                        filebrowserBrowseUrl :'/js/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '/js/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : '/js/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                    });
+                </script>
                 <div class="help-block">@if($errors->has('description')) {{ $errors->first('description') }} @endif</div>
             </div>
 
@@ -101,10 +123,6 @@
 @endsection
 
 @push('scripts')
-
-    <script src="{!! asset('/backend/bower_components/ckeditor/ckeditor.js') !!}"></script>
-    <script> CKEDITOR.replace('description_product'); </script>
-    <script> CKEDITOR.replace('chatlieu_product'); </script>
 
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput.css')?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput-rtl.css')?>" type="text/css">

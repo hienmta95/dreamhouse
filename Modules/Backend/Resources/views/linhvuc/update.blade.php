@@ -32,6 +32,17 @@
             <div class="form-group @if (count($errors->all())) {{$errors->has(['introduce']) ? 'has-error' : 'has-success'}} @endif">
                 <label class="control-label">Giới thiệu</label>
                 <textarea id="introduce_linhvuc" class="form-control{{ $errors->has('introduce') ? ' has-error' : '' }}" name="introduce" maxlength="255" rows="3">{{ $linhvuc->introduce }}</textarea>
+                <script type="text/javascript">
+                    var editor = CKEDITOR.replace('introduce_linhvuc',{
+                        language:'vi',
+                        filebrowserBrowseUrl :'/js/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '/js/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : '/js/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                    });
+                </script>
                 <div class="help-block">@if($errors->has('introduce')) {{ $errors->first('introduce') }} @endif</div>
             </div>
 
@@ -45,9 +56,6 @@
 @endsection
 
 @push('scripts')
-
-    <script src="{!! asset('/backend/bower_components/ckeditor/ckeditor.js') !!}"></script>
-    <script> CKEDITOR.replace('introduce_linhvuc'); </script>
 
 @endpush
 

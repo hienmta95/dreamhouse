@@ -87,9 +87,6 @@ Tạo mới hoạt động
 
 @push('scripts')
 
-    <script src="{!! asset('/backend/bower_components/ckeditor/ckeditor.js') !!}"></script>
-    <script> CKEDITOR.replace('content_hoatdong'); </script>
-
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput.css')?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('backend/bower_components/bootstrap-fileinput/css/fileinput-rtl.css')?>" type="text/css">
     <script src="{!! asset('backend/bower_components/bootstrap-fileinput/js/plugins/piexif.js') !!}"></script>
