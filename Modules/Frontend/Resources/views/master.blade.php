@@ -234,7 +234,7 @@
 
                         <tr>
                             <td><img src="{{ asset('Content/Html/resources/img/footer-ico1.png') }}" /></td>
-                            <td> Showroom và xưởng sản xuất: Cầu chui số 15 đại lộ Thăng Long, Ngọc Liệp, Quốc Oai, Hà Nội.</td>
+                            <td> Showroom & xưởng sản xuất: Cầu chui số 15 đại lộ Thăng Long, Ngọc Liệp, Quốc Oai, Hà Nội.</td>
                         </tr>
 
                         <tr>
