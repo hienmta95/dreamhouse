@@ -229,7 +229,7 @@
                         </tr>
                         <tr>
                             <td><img src="{{ asset('Content/Html/resources/img/footer-ico2.png') }}" /></td>
-                            <td> 0222 248 2266 - 0986 681 538</td>
+                            <td> 0222 248 2266 - 0986 681 583</td>
                         </tr>
 
                         <tr>
