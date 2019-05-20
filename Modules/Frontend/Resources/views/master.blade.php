@@ -215,7 +215,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <h3>Google Map</h3>
                     {{--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.834648675476!2d105.62943611545623!3d20.99926428601441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313450e67277115f%3A0x39285f7fa6acf67b!2sDreamGo+Workshop!5e0!3m2!1svi!2s!4v1490326755177" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen=""></iframe>--}}
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7732.884316771692!2d106.05941332244026!3d21.173218717269386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313509553f9bab8b%3A0x201c88cf589a9558!2zMzAwIE5ndXnhu4VuIFRyw6NpLCBWw7UgQ8aw4budbmcsIELhuq9jIE5pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1550336998186" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8746.676400907558!2d105.60352312110231!3d21.000256644753392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345096d7fcbab1%3A0x493a01fbbddf1e83!2sTomeco+An+Khang!5e0!3m2!1svi!2s!4v1558372060597!5m2!1svi!2s" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
 
                 <div class="col-md-3 col-sm-12 col-xs-12">
@@ -234,12 +234,12 @@
 
                         <tr>
                             <td><img src="{{ asset('Content/Html/resources/img/footer-ico1.png') }}" /></td>
-                            <td> Cơ sở 1: Khu làng nghề Tân Hội, Đan Phượng, Hà Nội.</td>
+                            <td> Showroom và xưởng sản xuất: Cầu chui số 15 đại lộ Thăng Long, Ngọc Liệp, Quốc Oai, Hà Nội.</td>
                         </tr>
 
                         <tr>
                             <td><img src="{{ asset('Content/Html/resources/img/footer-ico1.png') }}" /></td>
-                            <td> Cơ sở 2: Số 300 Nguyễn Trãi, phường Võ Cường, tp Bắc Ninh.</td>
+                            <td> Văn phòng đại diện tỉnh: Số 300 Nguyễn Trãi, phường Võ Cường, tp Bắc Ninh.</td>
                         </tr>
 
                         </tbody>
