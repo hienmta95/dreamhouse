@@ -27,9 +27,9 @@
             <ul class="slider">
                 @foreach($data['images'] as $key=>$item)
                     <li class="img-cover {{ $key == 0 ? "active" : "" }}">
-                        <a href="javascript:void(0)" title="{{ $data['introduce'] }}">
+                        <a href="javascript:void(0)" title="{{ $data['title'] }}">
                             <div class="img img-cover">
-                                <img src="{{ asset('/').$item['url'] }}" alt="{{ $data['introduce'] }}" title="{{ $data['introduce'] }}" />
+                                <img src="{{ asset('/').$item['url'] }}" alt="{{ $data['title'] }}" title="{{ $data['title'] }}" />
                             </div>
                             <div class="desc">
                                 <div class="container">
@@ -52,9 +52,9 @@
                 <ul class="slider">
                     @foreach($data['images'] as $key=>$item)
                         <li class="img-cover {{ $key == 0 ? "active" : "" }}">
-                            <a href="#" title="{{ $data['introduce'] }}">
+                            <a href="#" title="{{ $data['title'] }}">
                                 <div class="img img-cover">
-                                    <img src="{{ asset('/').$item['url'] }}" alt="{{ $data['introduce'] }}" title="{{ $data['introduce'] }}" />
+                                    <img src="{{ asset('/').$item['url'] }}" alt="{{ $data['title'] }}" title="{{ $data['title'] }}" />
                                 </div>
                             </a>
                         </li>

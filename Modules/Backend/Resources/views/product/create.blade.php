@@ -85,20 +85,9 @@ Tạo mới sản phẩm
                 <div class="help-block">@if($errors->has('image')) {{ $errors->first('image') }} @endif</div>
             </div>
 
-            <div class="form-group @if (count($errors->all())) {{$errors->has(['chatlieu']) ? 'has-error' : 'has-success'}} @endif">
-                <label class="control-label">Chất liệu </label>
-                <textarea id="chatlieu" class="form-control{{ $errors->has('chatlieu') ? ' has-error' : '' }}" name="chatlieu" maxlength="255" rows="3">{{ old('chatlieu') }}</textarea>
-                <script type="text/javascript">
-                    var editor = CKEDITOR.replace('chatlieu',{
-                        language:'vi',
-                        filebrowserBrowseUrl :'/js/ckfinder/ckfinder.html',
-                        filebrowserImageBrowseUrl : '/js/ckfinder/ckfinder.html?type=Images',
-                        filebrowserFlashBrowseUrl : '/js/ckfinder/ckfinder.html?type=Flash',
-                        filebrowserUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-                        filebrowserImageUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-                        filebrowserFlashUploadUrl : '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-                    });
-                </script>
+            <div class="form-group @if (count($errors->all())) {{$errors->has(['chatlieu']) ? 'has-error' : 'has-success'}} @endif" >
+                <label class="control-label">Chất liệu</label>
+                <input type="text" class="form-control{{ $errors->has('chatlieu') ? ' has-error' : '' }}" name="chatlieu" value="{{ old('chatlieu') }}">
                 <div class="help-block">@if($errors->has('chatlieu')) {{ $errors->first('chatlieu') }} @endif</div>
             </div>
 
