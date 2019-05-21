@@ -264,7 +264,7 @@
 <div id="fixed-icon">
     <ul>
         {{--<li><a href="{{ route('frontend.homepage') }}" class="cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-        <li><a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://www.facebook.com/noithatdreamhouse.hn/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
 
         {{--<li><a href="https://www.youtube.com/" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a></li>--}}
         <li><a href="tel:0919 379 799" class="phone"><i class="fa fa-phone"></i></a></li>

@@ -26,7 +26,7 @@
         <div class="background-green" style="margin-top: -6px; padding: 20px 0; color: #fff; background-color: #407274 !important;">
             <div class="container text-center">
                 <h1 style="font-size: 20px; margin: 0 0 15px; line-height: 1.4; text-transform: uppercase; font-weight: 600">CÔNG TY TNHH XÂY DỰNG KIẾN TRÚC VÀ NỘI THẤT DREAMHOUSE</h1>
-                <br style="margin: 0">Khu làng nghề Tân Hội, Đan Phượng, Hà Nội - Tel: 0222 248 2266 & 0986 681 538 - Hotline: 0919 379 799 </br>  Email: dreamgovn@gmail.com & noithatdreamhouse@gmail.com -  Website: http://dreamgo.vn</p>
+                <br style="margin: 0">Cầu chui số 15 đại lộ Thăng Long, Ngọc Liệp, Quốc Oai, Hà Nội - Tel: 0222 248 2266 & 0986 681 583 - Hotline: 0919 379 799 </br>  Email: dreamgovn@gmail.com & noithatdreamhouse@gmail.com -  Website: http://dreamgo.vn</p>
 
             </div>
         </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="tbl-cell">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7732.884316771692!2d106.05941332244026!3d21.173218717269386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313509553f9bab8b%3A0x201c88cf589a9558!2zMzAwIE5ndXnhu4VuIFRyw6NpLCBWw7UgQ8aw4budbmcsIELhuq9jIE5pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1550336998186" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8746.676400907558!2d105.60352312110231!3d21.000256644753392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345096d7fcbab1%3A0x493a01fbbddf1e83!2sTomeco+An+Khang!5e0!3m2!1svi!2s!4v1558372060597!5m2!1svi!2s" width="100%" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
 
                 </div>
             </div>
