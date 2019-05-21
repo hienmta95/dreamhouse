@@ -141,8 +141,8 @@ class ProductController extends Controller
             $product->slug = $request->slug;
             $product->price = $request->price;
             $product->masanpham = $request->masanpham;
-            $product->baohanh = $request->slug;
-            $product->kichthuoc = $request->slug;
+            $product->baohanh = $request->baohanh;
+            $product->kichthuoc = $request->kichthuoc;
             $product->status = $request->status;
             $product->category_id = $request->category_id;
             $product->description = $request->description;
