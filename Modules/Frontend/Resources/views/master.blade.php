@@ -27,6 +27,7 @@
     <link href="{{ asset('Content/Html/resources/css/lightslider.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('Content/Html/resources/css/sweetalert.css') }}" rel="stylesheet" />
     <link href="{{ asset('Content/Html/resources/css/mainfc2b.css') }}" rel="stylesheet" />
+    <link href="{{ asset('Content/Html/resources/css/quick-call-button.css') }}" rel="stylesheet" />
     @yield('styles')
 </head>
 
@@ -286,6 +287,8 @@
     <script src="{{ asset('Content/Html/resources/js/main.js') }}"></script>
     <script src="{{ asset('Content/Html/resources/js/jcode.js') }}"></script>
 
+    <script src="{{ asset('Content/Html/resources/js/drag-quick-call-button.js') }}"></script>
+
     <script>
         (function ( $ ) {
 
@@ -320,46 +323,36 @@
     });
 </script>
 
-<style type="text/css" media="screen and (max-width:767px)">
-    a.callus {
-        display: block !important;
-        position: fixed;
-        z-index: 9999;
-        bottom: 20px;
-        left: 20px;
-        background: #4a6f72 url(http://statics.vietmoz.info/img/ico/glyphicons/earphone-white.png) no-repeat;
-        background-position: 10px center;
-        background-size: 20px;
-        border-radius: 1000px;
-        padding: 5px 10px 5px 40px;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 30px;
-        color: #fff;
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        -moz-transform: scale(0);
-        -webkit-transform: scale(0);
-        -o-transform: scale(0);
-        -ms-transform: scale(0);
-        transform: scale(0);
+<!-- Start Quick Call Buttons By LongVietWeb.com -->
+<div class='quick-call-button'></div>
+<div class='call-now-button'>
+    <div><p class='call-text'> 0919 379 799 </p>
+        <a href='tel:0919379799' title='Call Now' >
+            <div class='quick-alo-ph-circle active'></div>
+            <div class='quick-alo-ph-circle-fill active'></div>
+            <div class='quick-alo-phone-img-circle shake'></div>
+        </a>
+    </div>
+</div>
+<style>
+    @media screen and (max-width: 1920px) {
+        .call-now-button { display: flex !important; background: #d8d8d8; }
+        .quick-call-button { display: block !important; }
     }
-    a.display.callus {
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        -moz-transform: scale(1);
-        -webkit-transform: scale(1);
-        -o-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
+    /*@media screen and (min-width: px) {*/
+    /*.call-now-button .call-text { display: none !important; }*/
+    /*}*/
+    /*@media screen and (max-width: px) {*/
+    /*.call-now-button .call-text { display: none !important; }*/
+    /*}*/
+    .call-now-button { top: 90%; }
+    .call-now-button { left: 1%; }
+    .call-now-button { background: #d8d8d8; }
+    .call-now-button div a .quick-alo-ph-img-circle, .call-now-button div a .quick-alo-phone-img-circle { background-color: #0c3; }
+    .call-now-button .call-text { color: #dd0404; }
 </style>
+<!-- /End Quick Call Buttons By LongVietWeb.com -->
+
 
     @yield('scripts')
 
