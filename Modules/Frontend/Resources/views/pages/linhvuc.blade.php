@@ -65,7 +65,7 @@
                                             <i>{{ date_format(date_create($data['updated_at']), "d/m/Y") }}</i>
                                         </div>
                                         <div class="short-desc">
-                                            {!! substr($item['content'], 0 , 170) !!}
+                                            {!! mb_substr($item['content'], 0 , 120) !!}
                                         </div>
                                     </div>
                                 </div>
