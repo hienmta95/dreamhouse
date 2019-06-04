@@ -43,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12 hoatdong">
-                    <p class="creat-date">Ngày đăng: {{ date_format(date_create($data['updated_at']), "d/m/Y") }}</p>
+                    <p class="creat-date">Ngày đăng: {{ date_format(date_create($data['ngaythang']), "d/m/Y") }}</p>
 
                     <p>Thiết kế : DreamHouse team.</p>
                     <p>Thi công : Công ty TNHH xây dựng kiến trúc và nội thất DreamHouse.</p>
@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="desc">
                                             <h3><a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
-                                            <div class="time"><i>{{ date_format(date_create($data['updated_at']), "d/m/Y") }}</i></div>
+                                            <div class="time"><i>{{ date_format(date_create($data['ngaythang']), "d/m/Y") }}</i></div>
                                         </div>
                                     </li>
                                     @endif
