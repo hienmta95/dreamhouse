@@ -62,7 +62,7 @@
                                         <h3><a href="{{ route('frontend.get.hoatdong', ['id' =>$item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}" class="color-green">{{ $item['title'] }}</a>
                                         </h3>
                                         <div class="time">
-                                            <i>{{ date_format(date_create($data['updated_at']), "d/m/Y") }}</i>
+                                            <i>{{ date_format(date_create($data['ngaythang']), "d/m/Y") }}</i>
                                         </div>
                                         <div class="short-desc">
                                             {!! mb_substr($item['content'], 0 , 120) !!}
