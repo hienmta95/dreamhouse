@@ -42,7 +42,7 @@ class HoatdongController extends Controller
                 return "<p>". $abc ."</p>";
             })
             ->editColumn('content',function ($row){
-                return "<p>". substr($row->content, 0, 100) ."</p>";
+                return "<p>". mb_substr($row->content, 0, 100) ."</p>";
             })
             ->addColumn('action', function($row) {
                 return

@@ -32,7 +32,7 @@ class RoomController extends Controller
                 return "<p>". count($row->category) ."</p>";
             })
             ->editColumn('introduce',function ($row){
-                return "<p>". substr($row->introduce, 0, 100) ."</p>";
+                return "<p>". mb_substr($row->introduce, 0, 100) ."</p>";
             })
             ->addColumn('action', function($row) {
                 return
