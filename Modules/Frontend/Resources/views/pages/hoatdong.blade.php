@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="desc">
                                             <h3><a href="{{ route('frontend.get.hoatdong', ['id' => $item['id'], 'slug' => $item['slug']]) }}" title="{{ $item['title'] }}">{{ $item['title'] }}</a></h3>
-                                            <div class="time"><i>{{ date_format(date_create($data['ngaythang']), "d/m/Y") }}</i></div>
+                                            <div class="time"><i>{{ date_format(date_create($item['ngaythang']), "d/m/Y") }}</i></div>
                                         </div>
                                     </li>
                                     @endif
